@@ -1,0 +1,150 @@
+{
+  "brand": "Centro Emovere",
+  "tagline": "Terapia · Riabilitazione · Crescita",
+  "email": "centroemoverealghero@gmail.com",
+  "address": "Via XX Settembre 246, Alghero (SS)",
+  "instagram": "https://www.instagram.com/centroemovere.alghero/",
+  "team": [
+    {
+      "slug": "martina",
+      "name": "Martina",
+      "role": "Educatrice",
+      "image": "/img/operators/martina.jpg",
+      "serviceSlug": "educazione-professionale",
+      "founder": true,
+      "email": "martina.salis1987@gmail.com",
+      "phone": "3400841926",
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": []
+    },
+    {
+      "slug": "giulia",
+      "name": "Giulia",
+      "role": "Psicologa",
+      "image": "/img/operators/giulia.jpg",
+      "serviceSlug": "psicologia",
+      "founder": true,
+      "email": "",
+      "phone": "",
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": []
+    },
+    {
+      "slug": "valentina",
+      "name": "Valentina",
+      "role": "Psicomotricista",
+      "image": "/img/operators/valentina.jpg",
+      "serviceSlug": "neuropsicomotricita",
+      "founder": true,
+      "email": "",
+      "phone": "",
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": []
+    },
+    {
+      "slug": "alessandra",
+      "name": "Alessandra",
+      "role": "Logopedista",
+      "image": "/img/operators/alessandra.jpg",
+      "serviceSlug": "logopedia",
+      "founder": false,
+      "email": "",
+      "phone": "",
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": []
+    },
+    {
+      "slug": "daniele",
+      "name": "Daniele",
+      "role": "Fisioterapista",
+      "image": "/img/operators/daniele.jpg",
+      "serviceSlug": "fisioterapia",
+      "founder": false,
+      "email": "",
+      "phone": "",
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": []
+    },
+    {
+      "slug": "andrea",
+      "name": "Andrea",
+      "role": "Psicologo",
+      "image": "/img/operators/andrea.jpg",
+      "serviceSlug": "psicologia-andrea",
+      "serviceSlugs": ["psicologia", "psicologia-andrea"],
+      "founder": false,
+      "email": "",
+      "phone": "",
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": []
+    }
+  ],
+  "services": [
+    {
+      "slug": "educazione-professionale",
+      "title": "Educazione Professionale",
+      "description": "Percorsi educativi personalizzati per bambini e famiglie.",
+      "images": ["/img/services/educatrice.jpg"],
+      "bullets": []
+    },
+    {
+      "slug": "psicologia",
+      "title": "Psicologia",
+      "description": "Supporto psicologico per il benessere individuale e relazionale.",
+      "images": ["/img/services/psicologo.jpg"],
+      "bullets": []
+    },
+    {
+      "slug": "neuropsicomotricita",
+      "title": "Neuropsicomotricità",
+      "description": "Sviluppo motorio e cognitivo attraverso attività mirate.",
+      "images": ["/img/services/neuro.jpg"],
+      "bullets": []
+    },
+    {
+      "slug": "logopedia",
+      "title": "Logopedia",
+      "description": "Interventi mirati per migliorare linguaggio e comunicazione.",
+      "images": ["/img/services/logopedia.jpg"],
+      "bullets": []
+    },
+    {
+      "slug": "fisioterapia",
+      "title": "Fisioterapia",
+      "description": "Riabilitazione e prevenzione dei disturbi motori.",
+      "images": ["/img/services/fisioterapia.jpg"],
+      "bullets": []
+    },
+    {
+      "slug": "psicologia-andrea",
+      "title": "Consulenza",
+      "description": "Consulenza psicologica e sostegno motivazionale.",
+      "images": ["/img/services/consulenza.jpg"],
+      "bullets": []
+    }
+  ]
+}

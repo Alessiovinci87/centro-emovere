@@ -1,103 +1,95 @@
-import Image from "next/image";
+// app/page.js
+import site from "@/content/site.config.json";
+import HeroImage from "@/components/HeroImage.client";
+import CardLink from "@/components/CardLink";
+import OperatorsGrid from "@/components/OperatorsGrid";
+import Reveal from "@/components/Reveal";
+import BackgroundPattern from "@/components/BackgroundPattern";
+import StudioGallery from "@/components/StudioGallery.client";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const team = Array.isArray(site?.team) ? site.team : [];
+  const services = Array.isArray(site?.services) ? site.services : [];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  const studioImages = [
+    { src: "/img/studio/1.jpg", alt: "Evento in studio" },
+    { src: "/img/studio/2.jpg", alt: "Ingresso" },
+    { src: "/img/studio/3.jpg", alt: "Dettagli preparazione" },
+    { src: "/img/studio/4.jpg", alt: "Lecture" },
+    { src: "/img/studio/5.jpg", alt: "Allestimento" },
+  ];
+
+  return (
+    <>
+      <HeroImage
+        desktopSrc="/video/herovid.mp4"
+        mobileImg="/video/herosmartimg.jpg"
+        tabletImg="/video/herotabimg.jpg"
+        showArrow
+      />
+
+
+
+
+      {/* CONTENUTO */}
+      <main id="main" tabIndex="-1">
+        {/* Chi Siamo (usa team) */}
+        <OperatorsGrid team={team} />
+
+        {/* Fascia highlight con pattern brand (DISATTIVATA) */}
+        {/*
+        <section
+          className="mt-12 relative overflow-hidden rounded-[var(--radius)] shadow-[0_6px_16px_rgba(0,0,0,0.12)]"
+          style={{ background: "#f7f2e7" }}
+        >
+          <BackgroundPattern variant="band" />
+          <div className="container py-10 md:py-14 relative z-10">
+            <h3 className="h2 mb-4">Ambienti e attenzione</h3>
+            <div className="grid-1x3">
+              {highlights.map((src, i) => (
+                <Reveal key={i} delay={i * 0.06}>
+                  <div className="img-wrap">
+                    <div className="relative w-full pt-[66%]">
+                      <img src={src} alt="" className="img-cover" loading="lazy" />
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+        */}
+
+        {/* Tutti i servizi — con sfondo/pattern */}
+        <section
+          id="tutti-servizi"
+          className="mt-12 relative overflow-hidden rounded-[var(--radius)] shadow-[0_6px_16px_rgba(0,0,0,0.12)]"
+          style={{ background: "#f7f2e7" }}
+        >
+          <BackgroundPattern variant="band" />
+          <div className="container py-10 md:py-14 relative z-10">
+            <h3 className="section-title">Tutti i servizi</h3>
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              {services.map((s, i) => (
+                <Reveal key={s.slug} delay={i * 0.04}>
+                  <CardLink
+                    href={`/servizi/${s.slug}`}
+                    title={s.title}
+                    text={s.description}
+                    img={s.images?.[0] || "/img/hero.jpg"}
+                  />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Galleria Studio — sfondo normale */}
+        <section className="container mt-12">
+          <h3 className="section-title">Lo studio</h3>
+          <StudioGallery images={studioImages} />
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
