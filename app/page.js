@@ -7,6 +7,12 @@ import Reveal from "@/components/Reveal";
 import BackgroundPattern from "@/components/BackgroundPattern";
 import StudioGallery from "@/components/StudioGallery.client";
 
+// ✅ Metadata deve stare fuori dalla funzione
+export const metadata = {
+  title: "Centro Emovere",
+  description: "Terapia · Riabilitazione · Crescita",
+};
+
 export default function Home() {
   const team = Array.isArray(site?.team) ? site.team : [];
   const services = Array.isArray(site?.services) ? site.services : [];
@@ -27,9 +33,6 @@ export default function Home() {
         tabletImg="/video/herotabimg.jpg"
         showArrow
       />
-
-
-
 
       {/* CONTENUTO */}
       <main id="main" tabIndex="-1">

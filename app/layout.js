@@ -8,10 +8,7 @@ import Header from "@/components/Header.client";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
-export const metadata = {
-  title: site.brand,
-  description: site.tagline,
-};
+
 
 export default function RootLayout({ children }) {
   return (
@@ -29,7 +26,7 @@ export default function RootLayout({ children }) {
         >
           <BackgroundPattern variant="band" />
 
-          <div className="container-wide py-10 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:[grid-template-columns:1fr_1fr_1.3fr_1fr] items-start relative z-10">
+<div className="container-wide py-10 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:[grid-template-columns:1fr_1fr_1.3fr_1fr] items-start relative z-10">
             {/* Brand */}
             <div className="space-y-1">
               <div className="font-serif text-base">{site.brand}</div>
@@ -46,11 +43,11 @@ export default function RootLayout({ children }) {
             <div className="space-y-2">
               <div className="text-[var(--muted)]">Contatti</div>
               <a
-                href={`mailto:${site.email}`}
-                className="link-quiet whitespace-normal lg:whitespace-nowrap"
-              >
-                {site.email}
-              </a>
+  href={`mailto:${site.email}`}
+  className="link-quiet whitespace-normal lg:whitespace-nowrap"
+>
+  {site.email}
+</a>
 
               <div>
                 <a
