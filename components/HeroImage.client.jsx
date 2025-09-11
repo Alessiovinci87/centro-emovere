@@ -1,19 +1,21 @@
-// components/HeroImage.client.jsx
 "use client";
 
 export default function HeroImage({
   // Video desktop (≥1024px)
-  desktopSrc = "/video/herovid.mp4",
-  poster = null,
+  desktopSrc = "/video/centro-emovere-alghero-terapia-riabilitazione.mp4",
   showArrow = true,
   liftDesktop = true,
 
-  // Immagini:
-  // se i file sono in /public/img/hero/... usa questi default,
-  // altrimenti passali come prop (vedi esempio sotto).
-  mobileImg = "/img/hero/herosmartimg.jpg",   // <768px
-  tabletImg = "/img/hero/herotabimg.jpg",     // 768–1023px
-  alt = "Hero",
+  // Immagini fallback
+  mobileImg = {
+  src: "/video/hero-mobile-centro-emovere-alghero.jpg",
+  alt: "Centro Emovere Alghero — Terapia, Riabilitazione e Crescita (versione mobile)"
+},
+tabletImg = {
+  src: "/video/hero-tablet-centro-emovere-alghero.jpg",
+  alt: "Centro Emovere Alghero — Terapia, Riabilitazione e Crescita (versione tablet)"
+},
+
 }) {
   return (
     <section
@@ -26,33 +28,37 @@ export default function HeroImage({
     >
       {/* MOBILE: <768px */}
       <img
-        src={mobileImg}
-        alt={alt}
+        src={mobileImg?.src}
+        alt={mobileImg?.alt || "Centro Emovere Alghero — Terapia, Riabilitazione e Crescita"}
         className="absolute inset-0 block w-full h-full object-cover md:hidden"
         loading="eager"
+        decoding="async"
       />
 
       {/* TABLET: 768–1023px */}
       <img
-        src={tabletImg}
-        alt={alt}
+        src={tabletImg?.src}
+        alt={tabletImg?.alt || "Centro Emovere Alghero — Terapia, Riabilitazione e Crescita"}
         className="absolute inset-0 hidden md:block lg:hidden w-full h-full object-cover"
         loading="eager"
+        decoding="async"
       />
 
       {/* DESKTOP: ≥1024px */}
       <video
         className="absolute inset-0 hidden lg:block w-full h-full object-cover"
         src={desktopSrc}
-        poster={poster || undefined}
         autoPlay
         muted
         playsInline
         controls={false}
-        loop={false}
+        loop={false}               // 🔹 parte una sola volta
         preload="metadata"
-      />
+      >
+        Il tuo browser non supporta il video HTML5.
+      </video>
 
+      {/* Freccia scroll */}
       {showArrow && (
         <a
           href="#main"
