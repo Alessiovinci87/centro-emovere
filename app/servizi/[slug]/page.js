@@ -4,6 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import BackgroundPattern from "@/components/BackgroundPattern";
 
+export const dynamic = "force-dynamic";
+
+
 /* ---------- helpers ---------- */
 function resolveServiceSrc(img) {
   if (!img || !img.trim()) return "/img/hero.jpg";
