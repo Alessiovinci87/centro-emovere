@@ -5,8 +5,9 @@ import { ArrowRight, Check } from "@/components/Icons";
 
 const services = Array.isArray(site?.services) ? site.services : [];
 
-// Web3Forms (piano gratuito) accetta invii solo dal browser: la chiave è pubblica per design
-// (è legata all'email del centro, che riceve i messaggi). Se manca, si usa /api/contact (Resend).
+// Invio: prima /api/contact (Resend: mail in italiano con lo stile del sito). Se sul server non c'è
+// alcun provider (503 noProvider) si ripiega su Web3Forms direttamente dal browser: il piano gratuito
+// accetta solo chiamate client-side e la chiave è pubblica per design (legata all'email del centro).
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 
 async function sendWithWeb3Forms(d) {
@@ -38,7 +39,9 @@ async function sendWithApi(d) {
     body: JSON.stringify(d),
   });
   const json = await res.json().catch(() => ({}));
-  if (!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+  if (res.ok && json.ok) return;
+  if (res.status === 503 && json.noProvider && WEB3FORMS_KEY) return sendWithWeb3Forms(d);
+  throw new Error(json.error || `HTTP ${res.status}`);
 }
 
 export default function ContattiForm({ defaultService = "" }) {
@@ -59,8 +62,7 @@ export default function ContattiForm({ defaultService = "" }) {
     }
 
     try {
-      if (WEB3FORMS_KEY) await sendWithWeb3Forms(data);
-      else await sendWithApi(data);
+      await sendWithApi(data);
       setStatus("success");
       form.reset();
     } catch {
