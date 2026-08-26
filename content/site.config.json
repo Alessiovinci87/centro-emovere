@@ -303,6 +303,26 @@
   ],
   "services": [
     {
+      "slug": "educazione-professionale",
+      "title": "Educazione professionale",
+      "icon": "educazione",
+      "description": "Percorsi educativi individualizzati per bambini, ragazzi e famiglie.",
+      "intro": "L'educatore professionale lavora sull'autonomia, le competenze sociali e la quotidianità, costruendo insieme alla famiglia strategie concrete e sostenibili.",
+      "images": [
+        {
+          "src": "/img/services/educazione-professionale-martina-salis-alghero-centro-emovere.jpg",
+          "alt": "Servizio di educazione professionale al Centro Emovere di Alghero"
+        }
+      ],
+      "bullets": [
+        "Sviluppo delle autonomie personali e sociali",
+        "Supporto educativo in caso di difficoltà comportamentali",
+        "Accompagnamento allo studio e all'organizzazione",
+        "Lavoro in rete con scuola e famiglia"
+      ],
+      "seoTitle": "Educatore professionale ad Alghero"
+    },
+    {
       "slug": "psicologia",
       "title": "Psicologia",
       "icon": "psicologia",
@@ -321,26 +341,6 @@
         "Valutazione e percorsi in rete con le altre figure del centro"
       ],
       "seoTitle": "Psicologo ad Alghero"
-    },
-    {
-      "slug": "logopedia",
-      "title": "Logopedia",
-      "icon": "logopedia",
-      "description": "Valutazione e trattamento dei disturbi del linguaggio, della comunicazione e dell'apprendimento.",
-      "intro": "Interventi mirati per bambini, ragazzi e adulti, con attività pensate per essere coinvolgenti e vicine alla quotidianità, in stretta collaborazione con famiglia e scuola.",
-      "images": [
-        {
-          "src": "/img/services/logopedia-alessandra-marrosu-bambini-alghero-centro-emovere.jpg",
-          "alt": "Servizio di logopedia per bambini al Centro Emovere di Alghero"
-        }
-      ],
-      "bullets": [
-        "Ritardo e disturbi del linguaggio in età evolutiva",
-        "Difficoltà di articolazione e pronuncia",
-        "Disturbi specifici dell'apprendimento (lettura, scrittura, calcolo)",
-        "Deglutizione atipica e disturbi della voce"
-      ],
-      "seoTitle": "Logopedista ad Alghero"
     },
     {
       "slug": "neuropsicomotricita",
@@ -363,6 +363,26 @@
       "seoTitle": "Neuropsicomotricista ad Alghero"
     },
     {
+      "slug": "logopedia",
+      "title": "Logopedia",
+      "icon": "logopedia",
+      "description": "Valutazione e trattamento dei disturbi del linguaggio, della comunicazione e dell'apprendimento.",
+      "intro": "Interventi mirati per bambini, ragazzi e adulti, con attività pensate per essere coinvolgenti e vicine alla quotidianità, in stretta collaborazione con famiglia e scuola.",
+      "images": [
+        {
+          "src": "/img/services/logopedia-alessandra-marrosu-bambini-alghero-centro-emovere.jpg",
+          "alt": "Servizio di logopedia per bambini al Centro Emovere di Alghero"
+        }
+      ],
+      "bullets": [
+        "Ritardo e disturbi del linguaggio in età evolutiva",
+        "Difficoltà di articolazione e pronuncia",
+        "Disturbi specifici dell'apprendimento (lettura, scrittura, calcolo)",
+        "Deglutizione atipica e disturbi della voce"
+      ],
+      "seoTitle": "Logopedista ad Alghero"
+    },
+    {
       "slug": "fisioterapia",
       "title": "Fisioterapia",
       "icon": "fisioterapia",
@@ -381,26 +401,6 @@
         "Prevenzione e rieducazione posturale"
       ],
       "seoTitle": "Fisioterapista ad Alghero"
-    },
-    {
-      "slug": "educazione-professionale",
-      "title": "Educazione professionale",
-      "icon": "educazione",
-      "description": "Percorsi educativi individualizzati per bambini, ragazzi e famiglie.",
-      "intro": "L'educatore professionale lavora sull'autonomia, le competenze sociali e la quotidianità, costruendo insieme alla famiglia strategie concrete e sostenibili.",
-      "images": [
-        {
-          "src": "/img/services/educazione-professionale-martina-salis-alghero-centro-emovere.jpg",
-          "alt": "Servizio di educazione professionale al Centro Emovere di Alghero"
-        }
-      ],
-      "bullets": [
-        "Sviluppo delle autonomie personali e sociali",
-        "Supporto educativo in caso di difficoltà comportamentali",
-        "Accompagnamento allo studio e all'organizzazione",
-        "Lavoro in rete con scuola e famiglia"
-      ],
-      "seoTitle": "Educatore professionale ad Alghero"
     },
     {
       "slug": "consulenza",
