@@ -92,7 +92,7 @@ export default function Home() {
               <span className="eyebrow">L&apos;équipe</span>
               <h2 className="h2 mt-3">Le persone del centro</h2>
             </div>
-            <div className="grid gap-6 sm:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            <div className="grid gap-6 sm:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
               {team.map((m, i) => (
                 <Reveal key={m.slug} delay={i * 0.05}>
                   <TeamCard member={m} compact />

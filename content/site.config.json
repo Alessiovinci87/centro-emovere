@@ -261,6 +261,33 @@
         "alt": "La sala di fisioterapia di Daniele Delrio al Centro Emovere",
         "caption": "La sala di fisioterapia e neuropsicomotricità"
       }
+    },
+    {
+      "slug": "letizia",
+      "name": "Letizia Pala",
+      "firstName": "Letizia",
+      "role": "Psicologa",
+      "image": {
+        "src": "/img/operators/letizia-pala-psicologa-centro-emovere-alghero.jpg",
+        "alt": "Letizia Pala, psicologa del Centro Emovere ad Alghero"
+      },
+      "serviceSlugs": [
+        "psicologia"
+      ],
+      "founder": false,
+      "email": "",
+      "phone": "",
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": [],
+      "room": {
+        "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
+        "alt": "Lo studio di psicologia in cui riceve Letizia Pala al Centro Emovere",
+        "caption": "Lo studio di psicologia"
+      }
     }
   ],
   "services": [

@@ -168,7 +168,7 @@ export default async function TeamMemberPage({ params }) {
               <span className="eyebrow">L&apos;équipe</span>
               <h2 className="h2 mt-3">Le altre persone del centro</h2>
             </div>
-            <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
+            <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
               {colleagues.map((m) => (
                 <TeamCard key={m.slug} member={m} compact />
               ))}
