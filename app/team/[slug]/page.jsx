@@ -121,6 +121,13 @@ export default async function TeamMemberPage({ params }) {
                   </a>
                 )}
               </div>
+              {(member.registration || member.vatNumber) && (
+                <p className="mt-4 text-[13px] leading-6 text-[var(--muted)]">
+                  {member.registration}
+                  {member.registration && member.vatNumber ? " · " : ""}
+                  {member.vatNumber ? `P. IVA ${member.vatNumber}` : ""}
+                </p>
+              )}
               {!hasContacts && (
                 <p className="mt-3 text-[13px] text-[var(--muted)]">
                   Per contattare {member.firstName || member.name} scrivi a{" "}

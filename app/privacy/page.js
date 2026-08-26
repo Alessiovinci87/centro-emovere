@@ -20,10 +20,17 @@ export default function Privacy() {
         </div>
 
         <div className="prose prose-neutral max-w-3xl mt-10">
-          <h2>Titolare del trattamento</h2>
+          <h2>Titolari del trattamento</h2>
           <p>
-            {site.brand}, {site.address}. Email: <a href={`mailto:${site.email}`}>{site.email}</a>.
-            [Inserire ragione sociale / nominativo del titolare e partita IVA o codice fiscale.]
+            {site.brand} è uno studio professionale condiviso in {site.address}: i professionisti che vi operano sono ciascuno titolare autonomo del trattamento dei dati delle persone che seguono. Per le richieste ricevute tramite il sito (form, email, WhatsApp) il riferimento è:
+          </p>
+          <ul>
+            {(site.team || []).filter((m) => m.founder).map((m) => (
+              <li key={m.slug}>{m.name}{m.vatNumber ? ` — P. IVA ${m.vatNumber}` : ""}</li>
+            ))}
+          </ul>
+          <p>
+            Contatto unico per la privacy: <a href={`mailto:${site.email}`}>{site.email}</a>. [Verificare l&apos;elenco dei titolari e integrare P. IVA / codice fiscale.]
           </p>
 
           <h2>Dati trattati e finalità</h2>

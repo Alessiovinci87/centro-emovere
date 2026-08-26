@@ -96,12 +96,12 @@ export default function Footer() {
         </div>
       </div>
 
+      {site.legalNote && (
+        <div className="container pb-6 -mt-4 text-[13px] text-[var(--muted)]">{site.legalNote}</div>
+      )}
       <div className="border-t border-[var(--border)]">
         <div className="container py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[13px] text-[var(--muted)]">
-          <span>
-            © {year} {site.brand}. Tutti i diritti riservati.
-            {site.vatNumber ? ` · P. IVA ${site.vatNumber}` : ""}
-          </span>
+          <span>© {year} {site.brand}. Tutti i diritti riservati.</span>
           <span>Alghero (SS) · Sardegna</span>
         </div>
       </div>

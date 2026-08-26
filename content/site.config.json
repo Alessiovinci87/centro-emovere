@@ -6,7 +6,6 @@
   "phone": "",
   "whatsapp": "",
   "whatsappMessage": "Buongiorno, vorrei avere informazioni su un percorso al Centro Emovere.",
-  "vatNumber": "",
   "address": "Via XX Settembre 246, Alghero (SS)",
   "addressStreet": "Via XX Settembre 246",
   "addressCity": "Alghero",
@@ -151,7 +150,9 @@
         "src": "/img/studio/studio-educatrice-martina-salis-centro-emovere-alghero.jpg",
         "alt": "Lo studio di Martina Salis al Centro Emovere",
         "caption": "Lo studio di educazione professionale"
-      }
+      },
+      "vatNumber": "",
+      "registration": ""
     },
     {
       "slug": "giulia",
@@ -179,7 +180,9 @@
         "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
         "alt": "Lo studio di psicologia di Giulia Motzo al Centro Emovere",
         "caption": "Lo studio di psicologia"
-      }
+      },
+      "vatNumber": "",
+      "registration": ""
     },
     {
       "slug": "valentina",
@@ -206,7 +209,9 @@
         "src": "/img/studio/sala-fisioterapia-daniele-delrio-centro-emovere-alghero.jpg",
         "alt": "La stanza in cui Valentina Agostara svolge le sedute di neuropsicomotricità al Centro Emovere",
         "caption": "La stanza di neuropsicomotricità e fisioterapia"
-      }
+      },
+      "vatNumber": "",
+      "registration": ""
     },
     {
       "slug": "alessandra",
@@ -233,7 +238,9 @@
         "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
         "alt": "La stanza in cui Alessandra Marrosu svolge le sedute di logopedia al Centro Emovere",
         "caption": "La stanza di logopedia"
-      }
+      },
+      "vatNumber": "",
+      "registration": ""
     },
     {
       "slug": "daniele",
@@ -260,7 +267,9 @@
         "src": "/img/studio/sala-fisioterapia-daniele-delrio-centro-emovere-alghero.jpg",
         "alt": "La sala di fisioterapia di Daniele Delrio al Centro Emovere",
         "caption": "La sala di fisioterapia e neuropsicomotricità"
-      }
+      },
+      "vatNumber": "",
+      "registration": ""
     },
     {
       "slug": "letizia",
@@ -287,7 +296,9 @@
         "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
         "alt": "Lo studio di psicologia in cui riceve Letizia Pala al Centro Emovere",
         "caption": "Lo studio di psicologia"
-      }
+      },
+      "vatNumber": "",
+      "registration": ""
     }
   ],
   "services": [
@@ -411,5 +422,6 @@
       ],
       "seoTitle": "Consulenza psicologica ed educativa ad Alghero"
     }
-  ]
+  ],
+  "legalNote": "Studio professionale condiviso: ogni professionista opera in autonomia con la propria partita IVA."
 }
