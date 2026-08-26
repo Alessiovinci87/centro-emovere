@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import site, { team, getMember, servicesForMember, img, cleanTel, absoluteUrl } from "@/lib/site";
 import TeamCard from "@/components/TeamCard";
-import { ArrowRight, Instagram, Mail, Phone, ServiceIcon } from "@/components/Icons";
+import { ArrowRight, ChevronLeftSmall, Instagram, Mail, Phone, ServiceIcon } from "@/components/Icons";
+import HScroll from "@/components/HScroll";
 
 export function generateStaticParams() {
   return team.map((m) => ({ slug: m.slug }));
@@ -48,18 +49,19 @@ export default async function TeamMemberPage({ params }) {
 
       <section className="relative overflow-hidden">
         <div className="blob -top-24 -left-24 h-[320px] w-[320px] bg-[var(--blush)] opacity-50" />
-        <div className="container relative py-10 md:py-16">
-          <nav aria-label="Percorso" className="text-[13px] text-[var(--muted)]">
+        <div className="container relative pt-5 pb-8 md:py-16">
+          <nav aria-label="Percorso" className="crumbs text-[13px] text-[var(--muted)]">
+            <Link href="/team" className="crumb-back hidden text-[14px]"><ChevronLeftSmall /> Équipe</Link>
             <Link href="/" className="link-quiet">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/#chi-siamo" className="link-quiet">Équipe</Link>
+            <Link href="/team" className="link-quiet">Équipe</Link>
             <span className="mx-2">/</span>
             <span aria-current="page">{member.name}</span>
           </nav>
 
-          <div className="mt-8 grid gap-10 lg:gap-16 md:grid-cols-[minmax(260px,340px)_1fr] items-start">
+          <div className="mt-5 md:mt-8 grid gap-7 lg:gap-16 md:grid-cols-[minmax(260px,340px)_1fr] items-start">
             {/* Foto */}
-            <div className="relative mx-auto w-full max-w-[340px]">
+            <div className="relative mx-auto w-full max-w-[280px] md:max-w-[340px]">
               <div className="absolute -bottom-5 -left-5 h-28 w-28 rounded-full bg-[var(--sage)] opacity-50" aria-hidden="true" />
               <div className="arch relative overflow-hidden border border-[var(--border)] bg-white shadow-soft-2 aspect-[4/5]">
                 <img src={pic.src} alt={pic.alt} className="h-full w-full object-cover object-top" loading="eager" fetchPriority="high" />
@@ -175,11 +177,11 @@ export default async function TeamMemberPage({ params }) {
               <span className="eyebrow">L&apos;équipe</span>
               <h2 className="h2 mt-3">Le altre persone del centro</h2>
             </div>
-            <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            <HScroll cols="md:grid-cols-3 lg:grid-cols-5" item="w-[46%] sm:w-[34%]" className="md:gap-6">
               {colleagues.map((m) => (
                 <TeamCard key={m.slug} member={m} compact />
               ))}
-            </div>
+            </HScroll>
           </div>
         </section>
       )}

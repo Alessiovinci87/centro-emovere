@@ -181,3 +181,88 @@ img, video { max-width: 100%; height: auto; }
 @media (max-width: 767px) {
   body.has-mobile-cta footer { padding-bottom: 72px; }
 }
+
+/* =========================================================
+   Mobile "app-like"
+   ========================================================= */
+:root { --tabbar-h: 64px; }
+
+/* Tocco: niente flash blu, niente hover appiccicoso, feedback al tap */
+* { -webkit-tap-highlight-color: transparent; }
+html { overscroll-behavior-y: none; -webkit-text-size-adjust: 100%; }
+@media (hover: none) {
+  .hover-lift:hover { transform: none; box-shadow: var(--shadow-1); border-color: var(--border); }
+  .card:active, .hover-lift:active, a.card:active { transform: scale(.985); transition-duration: .08s; }
+  .btn:active { transform: scale(.97); }
+}
+
+/* Sotto lg la barra tab occupa il fondo: spazio per non coprire i contenuti */
+@media (max-width: 1023px) {
+  body { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); }
+  .section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .section-tight { padding-top: 2rem; padding-bottom: 2rem; }
+  .section-head { margin-bottom: 1.25rem; }
+  .lead { font-size: 16px; line-height: 1.55; }
+  footer { margin-top: 2.5rem !important; }
+}
+
+/* Tab bar */
+.tabbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -8px 24px rgba(31,42,34,.06);
+}
+.tab {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  height: var(--tabbar-h); font-size: 11px; font-weight: 500; letter-spacing: .01em;
+  color: var(--muted); user-select: none;
+}
+.tab svg { transition: transform .15s ease; }
+.tab:active svg { transform: scale(.9); }
+.tab.is-active { color: var(--sage-strong); }
+.tab.is-active span { font-weight: 600; }
+.tab-cta {
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 3px;
+  height: var(--tabbar-h); font-size: 11px; font-weight: 600; color: var(--sage-strong); user-select: none;
+  padding-bottom: 7px;
+}
+.tab-cta-circle {
+  display: grid; place-items: center; width: 52px; height: 52px; margin-top: -22px;
+  border-radius: 9999px; background: var(--sage-strong); color: #fff;
+  box-shadow: 0 8px 20px rgba(104,122,72,.35), 0 0 0 5px var(--bg);
+  transition: transform .15s ease;
+}
+.tab-cta:active .tab-cta-circle { transform: scale(.94); }
+
+/* Bottom sheet */
+.sheet-root { position: fixed; inset: 0; z-index: 60; pointer-events: none; }
+.sheet-root.is-open { pointer-events: auto; }
+.sheet-overlay { position: absolute; inset: 0; background: rgba(31,42,34,.35); opacity: 0; transition: opacity .25s ease; }
+.sheet-root.is-open .sheet-overlay { opacity: 1; }
+.sheet {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: var(--bg); border-radius: 24px 24px 0 0;
+  padding: 12px 20px calc(20px + env(safe-area-inset-bottom));
+  box-shadow: 0 -12px 40px rgba(31,42,34,.18);
+  transform: translateY(105%); transition: transform .3s cubic-bezier(.22,.61,.36,1);
+}
+.sheet-root.is-open .sheet { transform: translateY(0); }
+.sheet-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 14px; border-radius: 16px; background: #fff; border: 1px solid var(--border);
+}
+.sheet-item:active { background: var(--sage-soft); }
+.sheet-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 9999px; background: var(--sage-soft); color: var(--sage-strong); flex-shrink: 0; }
+
+/* Caroselli orizzontali: scorrimento fluido iOS */
+.hscroll { -webkit-overflow-scrolling: touch; scroll-padding-left: 1.25rem; }
+
+/* Breadcrumb come "indietro" su mobile */
+@media (max-width: 767px) {
+  .crumbs > *:not(.crumb-back) { display: none; }
+  .crumb-back { display: inline-flex !important; align-items: center; gap: 2px; font-weight: 500; color: var(--sage-strong); }
+}
+@media (min-width: 768px) { .crumb-back { display: none !important; } }

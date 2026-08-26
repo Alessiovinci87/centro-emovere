@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import site, { services, getService, membersForService, img, absoluteUrl } from "@/lib/site";
 import ContattiForm from "@/components/ContattiForm";
-import { ArrowRight, Check, ServiceIcon } from "@/components/Icons";
+import { ArrowRight, Check, ChevronLeftSmall, ServiceIcon } from "@/components/Icons";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -58,12 +58,13 @@ export default async function ServicePage({ params }) {
       {/* ===== Intestazione ===== */}
       <section className="relative overflow-hidden">
         <div className="blob -top-32 -right-32 h-[420px] w-[420px] bg-[var(--sage-soft)] opacity-90" />
-        <div className="container relative grid gap-8 lg:gap-14 py-10 md:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="container relative grid gap-6 lg:gap-14 pt-5 pb-8 md:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <nav aria-label="Percorso" className="text-[13px] text-[var(--muted)]">
+            <nav aria-label="Percorso" className="crumbs text-[13px] text-[var(--muted)]">
+              <Link href="/servizi" className="crumb-back hidden text-[14px]"><ChevronLeftSmall /> Servizi</Link>
               <Link href="/" className="link-quiet">Home</Link>
               <span className="mx-2">/</span>
-              <Link href="/#servizi" className="link-quiet">Servizi</Link>
+              <Link href="/servizi" className="link-quiet">Servizi</Link>
               <span className="mx-2">/</span>
               <span aria-current="page">{svc.title}</span>
             </nav>
@@ -85,7 +86,7 @@ export default async function ServicePage({ params }) {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[380px] lg:max-w-[440px]">
+          <div className="relative mx-auto w-full max-w-[300px] md:max-w-[380px] lg:max-w-[440px]">
             <div className="absolute -bottom-5 -right-5 h-32 w-32 rounded-full bg-[var(--blush)] opacity-80" aria-hidden="true" />
             <div className="arch relative overflow-hidden border border-[var(--border)] bg-white shadow-soft-2 aspect-[4/5]">
               <img src={image.src} alt={image.alt} className="h-full w-full object-cover" loading="eager" fetchPriority="high" />

@@ -8,6 +8,7 @@ import StudioGallery from "@/components/StudioGallery.client";
 import CtaBand from "@/components/CtaBand";
 import Reveal from "@/components/Reveal";
 import Faq, { faqJsonLd } from "@/components/Faq";
+import HScroll from "@/components/HScroll";
 import { ArrowRight, Check } from "@/components/Icons";
 
 export const metadata = {
@@ -41,17 +42,20 @@ export default function Home() {
                 Ogni servizio può essere seguito da solo o integrato con gli altri: l&apos;équipe si confronta per costruire il percorso più adatto.
               </p>
             </div>
-            <Link href="/contatti" className="link-arrow shrink-0">
+            <Link href="/contatti" className="link-arrow shrink-0 hidden md:inline-flex">
               Non sai quale scegliere? Scrivici <ArrowRight />
             </Link>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <HScroll cols="md:grid-cols-2 lg:grid-cols-3" item="w-[80%] sm:w-[58%]">
             {services.map((s, i) => (
               <Reveal key={s.slug} delay={i * 0.05} className="h-full">
                 <ServiceCard service={s} />
               </Reveal>
             ))}
+          </HScroll>
+          <div className="mt-4 md:hidden">
+            <Link href="/servizi" className="btn btn-ghost w-full">Vedi tutti i servizi <ArrowRight /></Link>
           </div>
         </div>
       </section>
@@ -92,12 +96,15 @@ export default function Home() {
               <span className="eyebrow">L&apos;équipe</span>
               <h2 className="h2 mt-3">Le persone del centro</h2>
             </div>
-            <div className="grid gap-6 sm:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+            <HScroll cols="md:grid-cols-3 lg:grid-cols-6" item="w-[46%] sm:w-[34%]" className="md:gap-6 lg:gap-8">
               {team.map((m, i) => (
                 <Reveal key={m.slug} delay={i * 0.05}>
                   <TeamCard member={m} compact />
                 </Reveal>
               ))}
+            </HScroll>
+            <div className="mt-4 md:hidden">
+              <Link href="/team" className="btn btn-ghost w-full">Tutta l&apos;équipe <ArrowRight /></Link>
             </div>
           </div>
         </div>
@@ -120,18 +127,20 @@ export default function Home() {
       {/* ===== Come funziona ===== */}
       <section id="come-funziona" className="section-tight">
         <div className="container">
-          <div className="rounded-3xl bg-[var(--sage-soft)]/70 border border-[var(--border)] px-6 py-10 md:px-12 md:py-14">
+          <div className="rounded-3xl bg-[var(--sage-soft)]/70 border border-[var(--border)] px-5 py-7 md:px-12 md:py-14">
             <div className="section-head">
               <span className="eyebrow">Come funziona</span>
               <h2 className="h2 mt-3">Iniziare è semplice</h2>
             </div>
-            <ol className="grid gap-6 md:grid-cols-3">
+            <ol className="grid gap-3 md:gap-6 md:grid-cols-3">
               {steps.map((st, i) => (
                 <Reveal key={st.title} delay={i * 0.08} as="li">
-                  <div className="relative rounded-2xl bg-white border border-[var(--border)] p-6 h-full">
-                    <span className="font-serif text-4xl text-[var(--sage)]">0{i + 1}</span>
-                    <h3 className="h3 mt-3">{st.title}</h3>
-                    <p className="mt-2 text-[15px] leading-6 text-[var(--muted)]">{st.text}</p>
+                  <div className="relative flex md:block gap-4 rounded-2xl bg-white border border-[var(--border)] p-4 md:p-6 h-full">
+                    <span className="font-serif text-3xl md:text-4xl text-[var(--sage)] leading-none w-9 shrink-0 md:w-auto">0{i + 1}</span>
+                    <div>
+                      <h3 className="h3 md:mt-3">{st.title}</h3>
+                      <p className="mt-1 md:mt-2 text-[14.5px] md:text-[15px] leading-6 text-[var(--muted)]">{st.text}</p>
+                    </div>
                   </div>
                 </Reveal>
               ))}

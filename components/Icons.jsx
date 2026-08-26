@@ -84,6 +84,50 @@ export function Instagram({ className = "h-5 w-5" }) {
     </svg>
   );
 }
+export function Home({ className = "h-6 w-6" }) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M3.5 11.5L12 4l8.5 7.5" />
+      <path d="M5.5 10v9.5h13V10" />
+      <path d="M10 19.5v-5h4v5" />
+    </svg>
+  );
+}
+export function Grid({ className = "h-6 w-6" }) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="4" y="4" width="6.5" height="6.5" rx="1.5" />
+      <rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" />
+      <rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" />
+      <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" />
+    </svg>
+  );
+}
+export function Users({ className = "h-6 w-6" }) {
+  return (
+    <svg {...base} className={className}>
+      <circle cx="9" cy="8" r="3.2" />
+      <path d="M3.5 19.5a5.5 5.5 0 0 1 11 0" />
+      <path d="M15.5 5.3a3.2 3.2 0 0 1 0 5.4" />
+      <path d="M16.5 14.2a5.5 5.5 0 0 1 4 5.3" />
+    </svg>
+  );
+}
+export function Chat({ className = "h-6 w-6" }) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 3.5V16H6.5A2.5 2.5 0 0 1 4 13.5z" />
+      <path d="M8 9h8M8 12h5" />
+    </svg>
+  );
+}
+export function ChevronLeftSmall({ className = "h-4 w-4" }) {
+  return (
+    <svg {...base} strokeWidth={2} className={className}>
+      <path d="M14 6l-6 6 6 6" />
+    </svg>
+  );
+}
 export function Clock({ className = "h-5 w-5" }) {
   return (
     <svg {...base} className={className}>

@@ -6,6 +6,8 @@ export function GET() {
   const now = new Date().toISOString().slice(0, 10);
   const urls = [
     { path: "/", priority: "1.0" },
+    { path: "/servizi", priority: "0.9" },
+    { path: "/team", priority: "0.8" },
     { path: "/contatti", priority: "0.8" },
     ...services.map((s) => ({ path: `/servizi/${s.slug}`, priority: "0.8" })),
     ...team.map((m) => ({ path: `/team/${m.slug}`, priority: "0.6" })),

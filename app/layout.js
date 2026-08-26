@@ -5,7 +5,7 @@ import site from "@/content/site.config.json";
 import { SITE_URL, absoluteUrl } from "@/lib/site";
 import Header from "@/components/Header.client";
 import Footer from "@/components/Footer";
-import MobileCta from "@/components/MobileCta.client";
+import TabBar from "@/components/TabBar.client";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const playfair = Playfair_Display({
@@ -35,12 +35,15 @@ export const metadata = {
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
+  appleWebApp: { capable: true, statusBarStyle: "default", title: "Emovere" },
+  formatDetection: { telephone: true },
 };
 
 export const viewport = {
   themeColor: "#f7f4ee",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }) {
@@ -78,7 +81,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main id="main" className="flex-1">{children}</main>
         <Footer />
-        <MobileCta />
+        <TabBar />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>
     </html>

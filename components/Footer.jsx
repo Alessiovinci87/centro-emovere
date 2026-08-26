@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className="mt-20 md:mt-28 border-t border-[var(--border)] bg-[var(--sage-soft)]/70">
-      <div className="container py-12 md:py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+      <div className="container py-10 md:py-16 grid gap-8 md:gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         {/* Brand */}
         <div>
           <Link href="/" className="inline-flex items-center gap-3" aria-label={`${site.brand} — Home`}>
@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
 
         {/* Servizi */}
-        <div>
+        <div className="hidden md:block">
           <h3 className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)] mb-4">Servizi</h3>
           <ul className="space-y-2.5 text-[15px]">
             {services.map((s) => (
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
         {/* Il centro */}
-        <div>
+        <div className="hidden md:block">
           <h3 className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)] mb-4">Il centro</h3>
           <ul className="space-y-2.5 text-[15px]">
             <li><Link href="/#chi-siamo" className="link-quiet">Chi siamo</Link></li>
@@ -88,7 +88,7 @@ export default function Footer() {
             href={site.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 block overflow-hidden rounded-2xl border border-[var(--border)] shadow-soft-1 hover-lift"
+            className="mt-4 hidden md:block overflow-hidden rounded-2xl border border-[var(--border)] shadow-soft-1 hover-lift"
             aria-label="Apri la mappa su Google Maps"
           >
             <img src="/img/maps.jpg" alt="Mappa: Via XX Settembre 246, Alghero" className="w-full aspect-[16/9] object-cover" loading="lazy" />
@@ -102,7 +102,12 @@ export default function Footer() {
       <div className="border-t border-[var(--border)]">
         <div className="container py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[13px] text-[var(--muted)]">
           <span>© {year} {site.brand}. Tutti i diritti riservati.</span>
-          <span>Alghero (SS) · Sardegna</span>
+          <span className="flex gap-4 md:hidden">
+            <Link href="/blog" className="link-quiet">Blog</Link>
+            <Link href="/privacy" className="link-quiet">Privacy</Link>
+            <Link href="/cookies" className="link-quiet">Cookie</Link>
+          </span>
+          <span className="hidden md:inline">Alghero (SS) · Sardegna</span>
         </div>
       </div>
     </footer>
