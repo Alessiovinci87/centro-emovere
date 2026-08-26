@@ -13,17 +13,16 @@ export default function ContattiForm({ defaultService = "" }) {
     const form = e.currentTarget;
     setStatus("loading");
 
-    const data = new FormData(form);
-    if (data.get("bot-field")) return; // honeypot
+    const data = Object.fromEntries(new FormData(form));
 
     try {
-      // Netlify Forms: POST url-encoded verso la pagina statica che definisce il form
-      const res = await fetch("/__forms.html", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ "form-name": "contatti", ...Object.fromEntries(data) }).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
       setStatus("success");
       form.reset();
     } catch {
@@ -47,13 +46,7 @@ export default function ContattiForm({ defaultService = "" }) {
   }
 
   return (
-    <form
-      name="contatti"
-      onSubmit={onSubmit}
-      className="card p-5 md:p-7 space-y-4"
-      noValidate={false}
-    >
-      <input type="hidden" name="form-name" value="contatti" />
+    <form name="contatti" onSubmit={onSubmit} className="card p-5 md:p-7 space-y-4">
       <p className="hidden">
         <label>Non compilare: <input name="bot-field" /></label>
       </p>

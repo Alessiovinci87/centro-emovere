@@ -37,7 +37,7 @@ export default function Privacy() {
           <p>I dati inviati tramite il form sono conservati per il tempo necessario a gestire la richiesta e comunque non oltre [12 mesi], salvo l&apos;avvio di un percorso presso il centro.</p>
 
           <h2>Destinatari</h2>
-          <p>I dati possono essere trattati da fornitori tecnici che ospitano il sito e gestiscono l&apos;invio dei messaggi (es. Netlify), nominati responsabili del trattamento. Non sono diffusi a terzi per finalità di marketing.</p>
+          <p>I dati possono essere trattati da fornitori tecnici che ospitano il sito (Vercel) e inoltrano i messaggi del form alla nostra casella email (Web3Forms), nominati responsabili del trattamento. Non sono diffusi a terzi per finalità di marketing.</p>
 
           <h2>Diritti dell&apos;interessato</h2>
           <p>Puoi esercitare in qualsiasi momento i diritti previsti dagli artt. 15–22 del GDPR (accesso, rettifica, cancellazione, limitazione, portabilità, opposizione) scrivendo a <a href={`mailto:${site.email}`}>{site.email}</a>. Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali.</p>

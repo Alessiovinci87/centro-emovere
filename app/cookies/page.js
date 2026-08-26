@@ -33,7 +33,7 @@ export default function Cookies() {
           <p>Non utilizziamo cookie di profilazione, strumenti di analisi né tracciamento pubblicitario: per questo il sito non mostra un banner di consenso. Se in futuro verranno introdotti strumenti di questo tipo, questa pagina sarà aggiornata e verrà richiesto il consenso prima dell&apos;attivazione.</p>
 
           <h2>Form contatti</h2>
-          <p>I messaggi inviati dal form vengono raccolti dal servizio Netlify Forms, che tratta i dati per conto nostro esclusivamente per recapitarci il messaggio. Maggiori dettagli nell&apos;<a href="/privacy">informativa privacy</a>.</p>
+          <p>Il form non usa cookie. I messaggi inviati vengono recapitati alla nostra casella email tramite il servizio Web3Forms, che tratta i dati per conto nostro esclusivamente per l&apos;inoltro. Maggiori dettagli nell&apos;<a href="/privacy">informativa privacy</a>.</p>
 
           <h2>Come gestire i cookie</h2>
           <p>Puoi cancellare o bloccare i cookie dalle impostazioni del tuo browser. La disattivazione dei cookie tecnici potrebbe compromettere alcune funzionalità del sito.</p>
