@@ -30,7 +30,7 @@ export default function Privacy() {
             ))}
           </ul>
           <p>
-            Contatto unico per la privacy: <a href={`mailto:${site.email}`}>{site.email}</a>. [Verificare l&apos;elenco dei titolari e integrare P. IVA / codice fiscale.]
+            Contatto unico per la privacy: <a href={`mailto:${site.email}`}>{site.email}</a>. [Integrare P. IVA / codice fiscale delle titolari.]
           </p>
 
           <h2>Dati trattati e finalità</h2>
