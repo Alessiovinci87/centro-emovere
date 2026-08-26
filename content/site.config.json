@@ -99,7 +99,7 @@
       "caption": "Area accoglienza"
     },
     {
-      "src": "/img/studio/esterno-centro-emovere-alghero.jpg",
+      "src": "/img/studio/ingresso-centro-emovere-alghero.jpg",
       "alt": "Ingresso del Centro Emovere in Via XX Settembre 246, Alghero",
       "caption": "Ingresso"
     },
@@ -114,14 +114,14 @@
       "caption": "Studio di psicologia"
     },
     {
-      "src": "/img/studio/spazio-attivita-motorie-centro-emovere-alghero.jpg",
-      "alt": "Spazio per le attività motorie del Centro Emovere ad Alghero",
-      "caption": "Spazio attività motorie"
-    },
-    {
       "src": "/img/studio/sala-fisioterapia-daniele-delrio-centro-emovere-alghero.jpg",
       "alt": "Sala di fisioterapia del Centro Emovere",
       "caption": "Sala di fisioterapia e neuropsicomotricità"
+    },
+    {
+      "src": "/img/studio/spazio-esterno-attivita-motorie-centro-emovere-alghero.jpg",
+      "alt": "Spazio esterno per le attività motorie del Centro Emovere ad Alghero",
+      "caption": "Spazio attività motorie"
     }
   ],
   "team": [
