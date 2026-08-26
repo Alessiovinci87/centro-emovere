@@ -2,7 +2,7 @@
 //
 // Provider (in ordine di priorità, tutti configurati solo con variabili d'ambiente su Vercel):
 //   1. Resend     → RESEND_API_KEY  (+ opzionali CONTACT_TO, CONTACT_FROM). Destinatario libero.
-//   2. Web3Forms  → WEB3FORMS_KEY   (il destinatario è l'email che ha creato la chiave; copia a CONTACT_TO).
+//   2. Web3Forms  → WEB3FORMS_KEY   (il destinatario è l'email che ha creato la chiave; copia opzionale a CONTACT_TO).
 // Se nessuna chiave è presente il form mostra il fallback "scrivici via email".
 import site from "@/content/site.config.json";
 
@@ -61,7 +61,7 @@ async function sendWithWeb3Forms(d) {
       subject,
       from_name: `${site.brand} — sito web`,
       replyto: d.email,
-      ccemail: process.env.CONTACT_TO || site.email,
+      ...(process.env.CONTACT_TO ? { ccemail: process.env.CONTACT_TO } : {}),
       Nome: d.nome,
       Email: d.email,
       Telefono: d.telefono || "—",
