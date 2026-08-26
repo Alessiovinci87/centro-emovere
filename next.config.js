@@ -4,7 +4,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 /**
  * Header di sicurezza.
- * La CSP consente solo risorse del sito stesso, più la mappa Google (caricata su click)
+ * La CSP consente solo risorse del sito stesso, più la mappa Google (caricata su click), l'API di Web3Forms per il form contatti
  * e le immagini statiche di Google Maps. In sviluppo Next ha bisogno di eval per l'HMR.
  */
 const csp = [
@@ -13,7 +13,7 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://maps.googleapis.com https://maps.gstatic.com https://*.googleusercontent.com",
   "font-src 'self' data:",
-  "connect-src 'self'",
+  "connect-src 'self' https://api.web3forms.com",
   "frame-src https://www.google.com https://maps.google.com",
   "media-src 'self'",
   "object-src 'none'",

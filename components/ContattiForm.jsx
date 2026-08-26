@@ -5,6 +5,42 @@ import { ArrowRight, Check } from "@/components/Icons";
 
 const services = Array.isArray(site?.services) ? site.services : [];
 
+// Web3Forms (piano gratuito) accetta invii solo dal browser: la chiave è pubblica per design
+// (è legata all'email del centro, che riceve i messaggi). Se manca, si usa /api/contact (Resend).
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
+
+async function sendWithWeb3Forms(d) {
+  const servizio = d.servizio || "Non indicato / orientamento";
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_KEY,
+      subject: `Nuovo messaggio dal sito — ${servizio} — ${d.nome}`,
+      from_name: `${site.brand} — sito web`,
+      replyto: d.email,
+      Nome: d.nome,
+      Email: d.email,
+      Telefono: d.telefono || "—",
+      Servizio: servizio,
+      Messaggio: d.messaggio,
+      "Consenso privacy": d.privacy ? "Sì" : "No",
+    }),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok || !json.success) throw new Error(json.message || `HTTP ${res.status}`);
+}
+
+async function sendWithApi(d) {
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(d),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+}
+
 export default function ContattiForm({ defaultService = "" }) {
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
@@ -15,14 +51,16 @@ export default function ContattiForm({ defaultService = "" }) {
 
     const data = Object.fromEntries(new FormData(form));
 
+    // Honeypot: i bot compilano anche il campo nascosto → fingiamo l'invio
+    if (data["bot-field"]) {
+      setStatus("success");
+      form.reset();
+      return;
+    }
+
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+      if (WEB3FORMS_KEY) await sendWithWeb3Forms(data);
+      else await sendWithApi(data);
       setStatus("success");
       form.reset();
     } catch {

@@ -3,6 +3,9 @@
 // Provider (in ordine di priorità, tutti configurati solo con variabili d'ambiente su Vercel):
 //   1. Resend     → RESEND_API_KEY  (+ opzionali CONTACT_TO, CONTACT_FROM). Destinatario libero.
 //   2. Web3Forms  → WEB3FORMS_KEY   (il destinatario è l'email che ha creato la chiave; copia opzionale a CONTACT_TO).
+//      ATTENZIONE: il piano gratuito di Web3Forms rifiuta le chiamate server-side (403 "Use our API in client side"):
+//      per Web3Forms usare NEXT_PUBLIC_WEB3FORMS_KEY, che fa inviare direttamente dal browser (components/ContattiForm.jsx).
+//      Questa via server resta utile solo con il piano Pro (IP del server autorizzato).
 // Se nessuna chiave è presente il form mostra il fallback "scrivici via email".
 import site from "@/content/site.config.json";
 
