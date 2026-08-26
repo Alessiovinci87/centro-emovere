@@ -59,6 +59,7 @@ export async function POST(request) {
       subject: `Nuovo messaggio dal sito — ${data.servizio || "Orientamento"} — ${data.nome}`,
       from_name: `${site.brand} — sito web`,
       replyto: data.email,
+      ccemail: site.email, // copia al centro, oltre all'indirizzo che ha creato la chiave
       Nome: data.nome,
       Email: data.email,
       Telefono: data.telefono || "—",
