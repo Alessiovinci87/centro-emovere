@@ -1,173 +1,388 @@
 {
   "brand": "Centro Emovere",
   "tagline": "Terapia · Riabilitazione · Crescita",
+  "siteUrl": "https://www.centroemovere.it",
   "email": "centroemoverealghero@gmail.com",
+  "phone": "",
+  "whatsapp": "",
+  "whatsappMessage": "Buongiorno, vorrei avere informazioni su un percorso al Centro Emovere.",
+  "vatNumber": "",
   "address": "Via XX Settembre 246, Alghero (SS)",
+  "addressStreet": "Via XX Settembre 246",
+  "addressCity": "Alghero",
+  "addressProvince": "SS",
+  "addressZip": "07041",
   "instagram": "https://www.instagram.com/centroemovere.alghero/",
+  "mapsUrl": "https://www.google.com/maps?q=Via%20XX%20Settembre%20246%2C%20Alghero",
+  "mapsEmbed": "https://www.google.com/maps?q=Via%20XX%20Settembre%20246%2C%20Alghero&output=embed",
+  "hours": [],
+  "howToReach": "",
+  "hero": {
+    "eyebrow": "Centro multidisciplinare · Alghero",
+    "title": "Terapia, riabilitazione e crescita, insieme.",
+    "text": "Un'équipe di professioniste e professionisti che lavora in rete per accompagnare bambini, ragazzi e adulti in percorsi su misura: psicologia, logopedia, neuropsicomotricità, fisioterapia ed educazione professionale, in un unico spazio ad Alghero.",
+    "image": {
+      "src": "/img/fondatrici.jpg",
+      "alt": "Le fondatrici del Centro Emovere nello studio di Alghero"
+    },
+    "imageCaption": "Le fondatrici del Centro Emovere"
+  },
+  "about": {
+    "title": "Un centro, tante competenze",
+    "text": [
+      "Centro Emovere nasce ad Alghero dall'idea di tre professioniste che credono nel valore del lavoro in équipe: ogni persona è unica e merita un percorso costruito intorno ai suoi bisogni, non il contrario.",
+      "Psicologia, logopedia, neuropsicomotricità, fisioterapia ed educazione professionale dialogano tra loro sotto lo stesso tetto. Questo ci permette di osservare ogni situazione da più punti di vista e di offrire risposte coordinate a bambini, ragazzi, adulti e famiglie."
+    ],
+    "values": [
+      {
+        "title": "Équipe integrata",
+        "text": "Professionisti diversi che si confrontano sullo stesso percorso."
+      },
+      {
+        "title": "Percorsi su misura",
+        "text": "Obiettivi chiari, condivisi e rivisti insieme nel tempo."
+      },
+      {
+        "title": "Accoglienza",
+        "text": "Uno spazio pensato per far sentire a proprio agio grandi e piccoli."
+      }
+    ]
+  },
+  "steps": [
+    {
+      "title": "Contattaci",
+      "text": "Scrivici via email o dal form: raccontaci in poche righe di cosa hai bisogno."
+    },
+    {
+      "title": "Primo colloquio",
+      "text": "Un incontro conoscitivo per ascoltare, osservare e capire insieme quale sia il percorso più adatto."
+    },
+    {
+      "title": "Il percorso",
+      "text": "Definiamo obiettivi e tempi; l'équipe si coordina e ti aggiorna passo dopo passo."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Come funziona il primo contatto?",
+      "a": "Scrivici dal form, via email o su WhatsApp raccontandoci in poche righe la situazione. Ti ricontattiamo per fissare un primo colloquio conoscitivo, in cui capiamo insieme quale figura e quale percorso siano più adatti."
+    },
+    {
+      "q": "Serve una prescrizione medica?",
+      "a": "No, per accedere ai nostri servizi non è necessaria una prescrizione. Se hai già referti o valutazioni precedenti, portali al primo incontro: ci aiutano a partire dal punto giusto."
+    },
+    {
+      "q": "Con quali età lavorate?",
+      "a": "Con bambini, ragazzi e adulti. Neuropsicomotricità, logopedia ed educazione professionale sono rivolte soprattutto all'età evolutiva; psicologia, fisioterapia e consulenza si rivolgono a tutte le età."
+    },
+    {
+      "q": "Non so quale professionista mi serve: come faccio?",
+      "a": "È una situazione molto comune, per questo esiste il servizio di consulenza: un incontro di orientamento in cui ascoltiamo la richiesta e indichiamo il percorso più utile, anche coinvolgendo più figure del centro."
+    },
+    {
+      "q": "Collaborate con la scuola e con altri specialisti?",
+      "a": "Sì. Quando è utile e con il consenso della famiglia ci coordiniamo con insegnanti, pediatri e altri specialisti, così che il lavoro fatto in studio prosegua anche nella quotidianità."
+    },
+    {
+      "q": "Quanto dura un percorso?",
+      "a": "Dipende dagli obiettivi definiti al primo colloquio. Fissiamo insieme tempi e frequenza degli incontri e li rivediamo periodicamente in base ai progressi."
+    },
+    {
+      "q": "Quali sono i costi?",
+      "a": "Le tariffe variano in base al servizio e al tipo di percorso. Te le comunichiamo in modo chiaro al primo contatto, prima di iniziare. [Aggiungere qui eventuali convenzioni o detraibilità.]"
+    }
+  ],
+  "studio": [
+    {
+      "src": "/img/studio/area-accoglienza-centro-emovere-alghero.jpg",
+      "alt": "Area accoglienza del Centro Emovere ad Alghero",
+      "caption": "Area accoglienza"
+    },
+    {
+      "src": "/img/studio/esterno-centro-emovere-alghero.jpg",
+      "alt": "Ingresso del Centro Emovere in Via XX Settembre 246, Alghero",
+      "caption": "Ingresso"
+    },
+    {
+      "src": "/img/studio/studio-educatrice-martina-salis-centro-emovere-alghero.jpg",
+      "alt": "Studio di educazione professionale del Centro Emovere",
+      "caption": "Studio educazione professionale"
+    },
+    {
+      "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
+      "alt": "Studio di psicologia del Centro Emovere",
+      "caption": "Studio di psicologia"
+    },
+    {
+      "src": "/img/studio/spazio-attivita-motorie-centro-emovere-alghero.jpg",
+      "alt": "Spazio per le attività motorie del Centro Emovere ad Alghero",
+      "caption": "Spazio attività motorie"
+    },
+    {
+      "src": "/img/studio/sala-fisioterapia-daniele-delrio-centro-emovere-alghero.jpg",
+      "alt": "Sala di fisioterapia del Centro Emovere",
+      "caption": "Sala di fisioterapia e neuropsicomotricità"
+    }
+  ],
   "team": [
     {
       "slug": "martina",
-      "name": "Martina",
-      "role": "Educatrice",
+      "name": "Martina Salis",
+      "firstName": "Martina",
+      "role": "Educatrice professionale",
       "image": {
         "src": "/img/operators/martina-salis-educatrice-centro-emovere-alghero.jpg",
         "alt": "Martina Salis, educatrice del Centro Emovere ad Alghero"
       },
-      "serviceSlugs": ["educazione-professionale"],
+      "serviceSlugs": [
+        "educazione-professionale",
+        "consulenza"
+      ],
       "founder": true,
       "email": "martina.salis1987@gmail.com",
       "phone": "3400841926",
-      "socials": { "instagram": "", "facebook": "", "linkedin": "" },
-      "bio": []
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": [],
+      "room": {
+        "src": "/img/studio/studio-educatrice-martina-salis-centro-emovere-alghero.jpg",
+        "alt": "Lo studio di Martina Salis al Centro Emovere",
+        "caption": "Lo studio di educazione professionale"
+      }
     },
     {
       "slug": "giulia",
-      "name": "Giulia",
+      "name": "Giulia Motzo",
+      "firstName": "Giulia",
       "role": "Psicologa",
       "image": {
         "src": "/img/operators/giulia-motzo-psicologa-centro-emovere-alghero.jpg",
         "alt": "Giulia Motzo, psicologa del Centro Emovere ad Alghero"
       },
-      "serviceSlugs": ["psicologia"],
+      "serviceSlugs": [
+        "psicologia",
+        "consulenza"
+      ],
       "founder": true,
       "email": "",
       "phone": "",
-      "socials": { "instagram": "", "facebook": "", "linkedin": "" },
-      "bio": []
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": [],
+      "room": {
+        "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
+        "alt": "Lo studio di psicologia di Giulia Motzo al Centro Emovere",
+        "caption": "Lo studio di psicologia"
+      }
     },
     {
       "slug": "valentina",
-      "name": "Valentina",
-      "role": "Psicomotricista",
+      "name": "Valentina Agostara",
+      "firstName": "Valentina",
+      "role": "Neuropsicomotricista",
       "image": {
         "src": "/img/operators/valentina-agostara-psicomotricista-centro-emovere-alghero.jpg",
-        "alt": "Valentina Agostara, psicomotricista del Centro Emovere ad Alghero"
+        "alt": "Valentina Agostara, neuropsicomotricista del Centro Emovere ad Alghero"
       },
-      "serviceSlugs": ["neuropsicomotricita"],
+      "serviceSlugs": [
+        "neuropsicomotricita"
+      ],
       "founder": true,
       "email": "",
       "phone": "",
-      "socials": { "instagram": "", "facebook": "", "linkedin": "" },
-      "bio": []
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": [],
+      "room": {
+        "src": "/img/studio/sala-fisioterapia-daniele-delrio-centro-emovere-alghero.jpg",
+        "alt": "La stanza in cui Valentina Agostara svolge le sedute di neuropsicomotricità al Centro Emovere",
+        "caption": "La stanza di neuropsicomotricità e fisioterapia"
+      }
     },
     {
       "slug": "alessandra",
-      "name": "Alessandra",
+      "name": "Alessandra Marrosu",
+      "firstName": "Alessandra",
       "role": "Logopedista",
       "image": {
         "src": "/img/operators/alessandra-marrosu-logopedista-centro-emovere-alghero.jpg",
         "alt": "Alessandra Marrosu, logopedista del Centro Emovere ad Alghero"
       },
-      "serviceSlugs": ["logopedia"],
+      "serviceSlugs": [
+        "logopedia"
+      ],
       "founder": false,
       "email": "",
       "phone": "",
-      "socials": { "instagram": "", "facebook": "", "linkedin": "" },
-      "bio": []
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
+      },
+      "bio": [],
+      "room": {
+        "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
+        "alt": "La stanza in cui Alessandra Marrosu svolge le sedute di logopedia al Centro Emovere",
+        "caption": "La stanza di logopedia"
+      }
     },
     {
       "slug": "daniele",
-      "name": "Daniele",
+      "name": "Daniele Delrio",
+      "firstName": "Daniele",
       "role": "Fisioterapista",
       "image": {
         "src": "/img/operators/daniele-delrio-fisioterapista-centro-emovere-alghero.jpg",
         "alt": "Daniele Delrio, fisioterapista del Centro Emovere ad Alghero"
       },
-      "serviceSlugs": ["fisioterapia"],
+      "serviceSlugs": [
+        "fisioterapia"
+      ],
       "founder": false,
       "email": "",
       "phone": "",
-      "socials": { "instagram": "", "facebook": "", "linkedin": "" },
-      "bio": []
-    },
-    {
-      "slug": "andrea",
-      "name": "Andrea",
-      "role": "Psicologo",
-      "image": {
-        "src": "/img/operators/andrea-moro-psicologo-centro-emovere-alghero.jpg",
-        "alt": "Andrea Moro, psicologo del Centro Emovere ad Alghero"
+      "socials": {
+        "instagram": "",
+        "facebook": "",
+        "linkedin": ""
       },
-      "serviceSlugs": ["psicologia", "psicologia-andrea"],
-      "founder": false,
-      "email": "",
-      "phone": "",
-      "socials": { "instagram": "", "facebook": "", "linkedin": "" },
-      "bio": []
+      "bio": [],
+      "room": {
+        "src": "/img/studio/sala-fisioterapia-daniele-delrio-centro-emovere-alghero.jpg",
+        "alt": "La sala di fisioterapia di Daniele Delrio al Centro Emovere",
+        "caption": "La sala di fisioterapia e neuropsicomotricità"
+      }
     }
   ],
   "services": [
     {
-      "slug": "educazione-professionale",
-      "title": "Educazione Professionale",
-      "description": "Percorsi educativi personalizzati per bambini e famiglie.",
-      "images": [
-        {
-          "src": "/img/services/educazione-professionale-martina-salis-alghero-centro-emovere.jpg",
-          "alt": "Servizio di educazione professionale con Martina Salis al Centro Emovere di Alghero"
-        }
-      ],
-      "bullets": []
-    },
-    {
       "slug": "psicologia",
       "title": "Psicologia",
-      "description": "Supporto psicologico per il benessere individuale e relazionale.",
+      "icon": "psicologia",
+      "description": "Sostegno psicologico per il benessere individuale, di coppia e familiare, in ogni fase della vita.",
+      "intro": "Uno spazio di ascolto in cui affrontare momenti di difficoltà, comprendere meglio se stessi e costruire nuove risorse. Il percorso viene definito insieme, con obiettivi chiari e tempi condivisi.",
       "images": [
         {
-          "src": "/img/services/psicologia-giulia-motzo-moro-alghero-centro-emovere.jpg",
-          "alt": "Servizio di psicologia con Giulia Motzo e Andrea Moro al Centro Emovere di Alghero"
+          "src": "/img/services/psicologia-giulia-motzo-alghero-centro-emovere.jpg",
+          "alt": "Servizio di psicologia al Centro Emovere di Alghero"
         }
       ],
-      "bullets": []
-    },
-    {
-      "slug": "neuropsicomotricita",
-      "title": "Neuropsicomotricità",
-      "description": "Sviluppo motorio e cognitivo attraverso attività mirate.",
-      "images": [
-        {
-          "src": "/img/services/neuropsicomotricita-valentina-agostara-alghero-centro-emovere.jpg",
-          "alt": "Servizio di neuropsicomotricità con Valentina Agostara al Centro Emovere di Alghero"
-        }
+      "bullets": [
+        "Colloqui di sostegno psicologico per adulti, adolescenti e bambini",
+        "Supporto alla genitorialità e alla famiglia",
+        "Gestione di ansia, stress e momenti di cambiamento",
+        "Valutazione e percorsi in rete con le altre figure del centro"
       ],
-      "bullets": []
+      "seoTitle": "Psicologo ad Alghero"
     },
     {
       "slug": "logopedia",
       "title": "Logopedia",
-      "description": "Interventi mirati per migliorare linguaggio e comunicazione.",
+      "icon": "logopedia",
+      "description": "Valutazione e trattamento dei disturbi del linguaggio, della comunicazione e dell'apprendimento.",
+      "intro": "Interventi mirati per bambini, ragazzi e adulti, con attività pensate per essere coinvolgenti e vicine alla quotidianità, in stretta collaborazione con famiglia e scuola.",
       "images": [
         {
           "src": "/img/services/logopedia-alessandra-marrosu-bambini-alghero-centro-emovere.jpg",
-          "alt": "Servizio di logopedia con Alessandra Marrosu per bambini al Centro Emovere di Alghero"
+          "alt": "Servizio di logopedia per bambini al Centro Emovere di Alghero"
         }
       ],
-      "bullets": []
+      "bullets": [
+        "Ritardo e disturbi del linguaggio in età evolutiva",
+        "Difficoltà di articolazione e pronuncia",
+        "Disturbi specifici dell'apprendimento (lettura, scrittura, calcolo)",
+        "Deglutizione atipica e disturbi della voce"
+      ],
+      "seoTitle": "Logopedista ad Alghero"
+    },
+    {
+      "slug": "neuropsicomotricita",
+      "title": "Neuropsicomotricità",
+      "icon": "neuropsicomotricita",
+      "description": "Sviluppo motorio, relazionale e cognitivo del bambino attraverso il gioco e il movimento.",
+      "intro": "La terapia neuropsicomotoria accompagna la crescita del bambino usando il corpo e il gioco come strumenti principali, in un ambiente sicuro e stimolante.",
+      "images": [
+        {
+          "src": "/img/services/neuropsicomotricita-valentina-agostara-alghero-centro-emovere.jpg",
+          "alt": "Servizio di neuropsicomotricità al Centro Emovere di Alghero"
+        }
+      ],
+      "bullets": [
+        "Valutazione dello sviluppo psicomotorio",
+        "Difficoltà di coordinazione e motricità fine",
+        "Regolazione emotiva e attenzione attraverso il gioco",
+        "Sostegno ai prerequisiti degli apprendimenti"
+      ],
+      "seoTitle": "Neuropsicomotricista ad Alghero"
     },
     {
       "slug": "fisioterapia",
       "title": "Fisioterapia",
-      "description": "Riabilitazione e prevenzione dei disturbi motori.",
+      "icon": "fisioterapia",
+      "description": "Riabilitazione, recupero funzionale e prevenzione dei disturbi muscolo-scheletrici.",
+      "intro": "Percorsi riabilitativi personalizzati, dal recupero post-traumatico alla gestione del dolore, con l'obiettivo di tornare a muoversi bene e in autonomia.",
       "images": [
         {
           "src": "/img/services/fisioterapia-daniele-delrio-alghero-centro-emovere.jpg",
-          "alt": "Servizio di fisioterapia con Daniele Delrio al Centro Emovere di Alghero"
+          "alt": "Servizio di fisioterapia al Centro Emovere di Alghero"
         }
       ],
-      "bullets": []
+      "bullets": [
+        "Riabilitazione ortopedica e post-chirurgica",
+        "Trattamento del dolore cervicale, lombare e articolare",
+        "Terapia manuale ed esercizio terapeutico",
+        "Prevenzione e rieducazione posturale"
+      ],
+      "seoTitle": "Fisioterapista ad Alghero"
+    },
+    {
+      "slug": "educazione-professionale",
+      "title": "Educazione professionale",
+      "icon": "educazione",
+      "description": "Percorsi educativi individualizzati per bambini, ragazzi e famiglie.",
+      "intro": "L'educatore professionale lavora sull'autonomia, le competenze sociali e la quotidianità, costruendo insieme alla famiglia strategie concrete e sostenibili.",
+      "images": [
+        {
+          "src": "/img/services/educazione-professionale-martina-salis-alghero-centro-emovere.jpg",
+          "alt": "Servizio di educazione professionale al Centro Emovere di Alghero"
+        }
+      ],
+      "bullets": [
+        "Sviluppo delle autonomie personali e sociali",
+        "Supporto educativo in caso di difficoltà comportamentali",
+        "Accompagnamento allo studio e all'organizzazione",
+        "Lavoro in rete con scuola e famiglia"
+      ],
+      "seoTitle": "Educatore professionale ad Alghero"
     },
     {
       "slug": "consulenza",
       "title": "Consulenza",
-      "description": "Consulenza psicologica e sostegno motivazionale.",
+      "icon": "consulenza",
+      "description": "Un primo confronto per orientarsi e capire insieme quale percorso sia più adatto.",
+      "intro": "Non sempre è chiaro da dove iniziare. La consulenza è un incontro di orientamento in cui ascoltiamo la tua situazione e ti indirizziamo verso la figura o il percorso più utile.",
       "images": [
         {
-          "src": "/img/services/consulenza-martina-salis-giulia-motzo-andrea-moro-alghero-centro-emovere.jpg",
-          "alt": "Consulenza psicologica con Martina Salis, Giulia Motzo e Andrea Moro al Centro Emovere di Alghero"
+          "src": "/img/services/consulenza-orientamento-alghero-centro-emovere.jpg",
+          "alt": "Consulenza e orientamento al Centro Emovere di Alghero"
         }
       ],
-      "bullets": []
+      "bullets": [
+        "Colloquio conoscitivo e di orientamento",
+        "Consulenza a genitori, insegnanti ed educatori",
+        "Indicazioni sul percorso più adatto e sui tempi",
+        "Coordinamento con le altre figure del centro"
+      ],
+      "seoTitle": "Consulenza psicologica ed educativa ad Alghero"
     }
   ]
 }

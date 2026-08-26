@@ -1,97 +1,135 @@
-// components/StudioGallery.client.jsx
 "use client";
 
-import { useState, useRef } from "react";
-import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "@/components/Icons";
 
 export default function StudioGallery({ images = [] }) {
-  const pics = images.slice(0, 5);
-  const [active, setActive] = useState(0);     // desktop fisarmonica
-  const [idx, setIdx] = useState(0);           // mobile/tablet carosello
-  const touchX = useRef(null);
+  const pics = images.slice(0, 6);
+  const [active, setActive] = useState(0); // desktop: pannello espanso
+  const [idx, setIdx] = useState(0); // mobile: slide corrente
+  const trackRef = useRef(null);
+
+  // Mobile: carosello a scroll-snap nativo, aggiorna l'indice in base allo scroll
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const i = Math.round(el.scrollLeft / el.clientWidth);
+      setIdx(Math.max(0, Math.min(pics.length - 1, i)));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [pics.length]);
 
   if (!pics.length) return null;
 
-  const next = () => setIdx((i) => (i + 1) % pics.length);
-  const prev = () => setIdx((i) => (i - 1 + pics.length) % pics.length);
-
-  const onTouchStart = (e) => (touchX.current = e.changedTouches[0].clientX);
-  const onTouchEnd = (e) => {
-    const dx = e.changedTouches[0].clientX - (touchX.current ?? 0);
-    if (Math.abs(dx) > 40) (dx < 0 ? next() : prev());
+  const goTo = (i) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const n = (i + pics.length) % pics.length;
+    el.scrollTo({ left: n * el.clientWidth, behavior: "smooth" });
   };
 
   return (
-    <section className="relative">
-      {/* DESKTOP: fisarmonica (max 1229x640 come deciso) */}
-      <div className="hidden lg:flex mx-auto w-full max-w-[1229px] h-[640px] gap-6 px-4">
-        {pics.map((img, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            aria-pressed={active === i}
-            aria-label={`Apri immagine ${i + 1}`}
-            className="group relative h-full basis-0 overflow-hidden rounded-[var(--radius)] border border-[var(--border)] transition-[flex-grow] duration-500 ease-in-out focus:outline-none focus-visible:ring-2"
-            style={{ flexGrow: active === i ? 8 : 1 }}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt || `Foto ${i + 1}`}
-              fill
-              sizes="(min-width:1024px) 1229px, 100vw"
-              className="object-cover"
-              priority={i === 0}
-            />
-          </button>
-        ))}
+    <div>
+      {/* DESKTOP: pannelli espandibili */}
+      <div className="hidden lg:flex h-[520px] gap-3">
+        {pics.map((p, i) => {
+          const isActive = active === i;
+          return (
+            <button
+              key={p.src}
+              type="button"
+              onClick={() => setActive(i)}
+              onMouseEnter={() => setActive(i)}
+              aria-pressed={isActive}
+              aria-label={p.caption || p.alt || `Foto ${i + 1}`}
+              className="group relative h-full min-w-0 overflow-hidden rounded-[var(--radius)] border border-[var(--border)] bg-white transition-[flex-grow] duration-500 ease-[cubic-bezier(.22,.61,.36,1)]"
+              style={{ flexGrow: isActive ? 5 : 1, flexBasis: 0 }}
+            >
+              <img
+                src={p.src}
+                alt={p.alt || ""}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-5 text-left">
+                <span
+                  className={`block font-serif text-white text-lg transition-opacity duration-300 ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {p.caption}
+                </span>
+              </div>
+              {!isActive && (
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-90deg] whitespace-nowrap rounded-full bg-white/85 px-3 py-1 text-[12px] font-medium text-[var(--fg)] shadow">
+                  {p.caption}
+                </span>
+              )}
+            </button>
+          );
+        })}
       </div>
 
-      {/* MOBILE/TABLET: carosello con frecce */}
-      <div className="lg:hidden px-4">
-        <div
-          className="relative w-full mx-auto max-w-[640px] aspect-[4/3] overflow-hidden rounded-[var(--radius)] border border-[var(--border)]"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-        >
-          <Image
-            src={pics[idx].src}
-            alt={pics[idx].alt || `Foto ${idx + 1}`}
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
-          />
-
-          {/* Freccia sinistra */}
-          <button
-            onClick={prev}
-            aria-label="Precedente"
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-[var(--fg)] grid place-items-center shadow"
+      {/* MOBILE / TABLET: carosello scroll-snap */}
+      <div className="lg:hidden">
+        <div className="relative">
+          <div
+            ref={trackRef}
+            className="no-scrollbar flex snap-x snap-mandatory overflow-x-auto rounded-[var(--radius)] border border-[var(--border)] bg-white"
+            aria-roledescription="carosello"
           >
-            ‹
-          </button>
-          {/* Freccia destra */}
-          <button
-            onClick={next}
-            aria-label="Successiva"
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-[var(--fg)] grid place-items-center shadow"
-          >
-            ›
-          </button>
-
-          {/* Dots */}
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-            {pics.map((_, i) => (
-              <button
-                key={i}
-                aria-label={`Vai alla slide ${i + 1}`}
-                onClick={() => setIdx(i)}
-                className={`h-2 w-2 rounded-full ${i === idx ? "bg-white" : "bg-white/50"}`}
-              />
+            {pics.map((p, i) => (
+              <figure key={p.src} className="relative w-full shrink-0 snap-center aspect-[4/3]">
+                <img
+                  src={p.src}
+                  alt={p.alt || ""}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                {p.caption && (
+                  <figcaption className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[12.5px] font-medium shadow">
+                    {p.caption}
+                  </figcaption>
+                )}
+              </figure>
             ))}
           </div>
+
+          <button
+            type="button"
+            onClick={() => goTo(idx - 1)}
+            aria-label="Foto precedente"
+            className="absolute left-2 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-white/90 shadow hover:bg-white"
+          >
+            <ChevronLeft />
+          </button>
+          <button
+            type="button"
+            onClick={() => goTo(idx + 1)}
+            aria-label="Foto successiva"
+            className="absolute right-2 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-white/90 shadow hover:bg-white"
+          >
+            <ChevronRight />
+          </button>
+        </div>
+
+        <div className="mt-3 flex justify-center gap-2">
+          {pics.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Vai alla foto ${i + 1}`}
+              aria-current={i === idx}
+              onClick={() => goTo(i)}
+              className={`h-2 rounded-full transition-all ${i === idx ? "w-6 bg-[var(--sage-strong)]" : "w-2 bg-[var(--border)]"}`}
+            />
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

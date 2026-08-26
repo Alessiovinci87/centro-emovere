@@ -1,41 +1,37 @@
 import Link from "next/link";
 import site from "@/content/site.config.json";
-import BackgroundPattern from "@/components/BackgroundPattern";
+import { ArrowRight, Instagram } from "@/components/Icons";
 
 export const metadata = {
-  title: `Blog — ${site.brand}`,
-  description: "Sezione in costruzione.",
-  robots: { index: false, follow: false }, // evita l’indicizzazione finché è vuoto
+  title: "Blog",
+  description: "Approfondimenti e notizie dal Centro Emovere. Sezione in arrivo.",
+  robots: { index: false, follow: true },
 };
 
 export default function BlogUnderConstruction() {
   return (
-    <main className="container py-12 md:py-16">
-      <section className="relative overflow-hidden rounded-[var(--radius)] border border-[var(--border)] bg-white shadow">
-        {/* Pattern soft dietro, solo da md in su */}
-        <div className="hidden md:block absolute inset-0 opacity-10 -z-10 pointer-events-none">
-          <BackgroundPattern variant="band" />
-        </div>
-
-        <div className="p-6 md:p-10">
-          <h1 className="font-serif text-3xl md:text-4xl mb-2">Blog</h1>
-          <p className="p mb-6">
-            Stiamo lavorando ai contenuti. Torna presto!
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            <Link href="/" className="btn btn-ghost px-4 py-2">
-              Torna alla Home
-            </Link>
-            <a
-              href={`mailto:${site.email}`}
-              className="btn btn-primary px-4 py-2"
-            >
-              Scrivici
-            </a>
+    <section className="section">
+      <div className="container">
+        <div className="relative overflow-hidden rounded-3xl bg-white border border-[var(--border)] shadow-soft-1 px-6 py-14 md:px-14 md:py-20 text-center">
+          <div className="blob -top-20 -left-20 h-56 w-56 bg-[var(--blush)] opacity-60" />
+          <div className="blob -bottom-24 -right-16 h-64 w-64 bg-[var(--sage-soft)] opacity-90" />
+          <div className="relative max-w-xl mx-auto">
+            <span className="eyebrow justify-center">Blog</span>
+            <h1 className="h1 mt-3">Stiamo preparando i primi articoli</h1>
+            <p className="lead mt-4">
+              Qui troverai approfondimenti su crescita, linguaggio, movimento e benessere scritti dall&apos;équipe. Nel frattempo seguici su Instagram.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+              <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
+                <Instagram className="h-[18px] w-[18px]" /> Seguici su Instagram
+              </a>
+              <Link href="/" className="btn btn-ghost btn-lg">
+                Torna alla Home <ArrowRight />
+              </Link>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

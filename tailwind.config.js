@@ -4,26 +4,32 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  corePlugins: { container: false },
   theme: {
     extend: {
       colors: {
         emovere: {
-          bg: "#f6f5f2",
-          fg: "#0d1b12",
-          sage: "#9BB39C",
-          sand: "#D9CBB8",
-          muted: "#6b6b6b",
-          border: "#e5e1da",
-          ring: "#c9d6cb",
+          bg: "#f7f4ee",
+          fg: "#1f2a22",
+          sage: "#9fb17d",
+          "sage-strong": "#687a48",
+          "sage-deep": "#4f5d38",
+          "sage-soft": "#ecf1e4",
+          blush: "#e8d5c6",
+          "blush-soft": "#f4ebe3",
+          muted: "#5f6b62",
+          border: "#e6e1d8",
+          ring: "#bdcaa5",
         },
       },
       borderRadius: {
-        xl: "16px",
-        "2xl": "20px",
+        xl: "14px",
+        "2xl": "18px",
+        "3xl": "26px",
       },
       boxShadow: {
-        "soft-1": "0 1px 2px rgba(0,0,0,.04), 0 4px 14px rgba(0,0,0,.05)",
-        "soft-2": "0 3px 6px rgba(0,0,0,.06), 0 12px 24px rgba(0,0,0,.08)",
+        "soft-1": "0 1px 2px rgba(31,42,34,.04), 0 6px 18px rgba(31,42,34,.06)",
+        "soft-2": "0 4px 10px rgba(31,42,34,.08), 0 18px 36px rgba(31,42,34,.10)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
@@ -32,8 +38,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/forms"),
+    require("@tailwindcss/forms")({ strategy: "class" }),
     require("@tailwindcss/typography"),
-    require("@tailwindcss/line-clamp"),
   ],
 };

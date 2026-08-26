@@ -1,216 +1,205 @@
 // app/servizi/[slug]/page.js
-import site from "@/content/site.config.json";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import BackgroundPattern from "@/components/BackgroundPattern";
+import site, { services, getService, membersForService, img, absoluteUrl } from "@/lib/site";
+import ContattiForm from "@/components/ContattiForm";
+import { ArrowRight, Check, ServiceIcon } from "@/components/Icons";
 
-export const dynamic = "force-dynamic";
-
-
-/* ---------- helpers ---------- */
-function resolveServiceSrc(img) {
-  if (!img || !img.trim()) return "/img/hero.jpg";
-  return img.startsWith("/") ? img : `/img/services/${img}`;
-}
-function resolveOperatorSrc(img) {
-  if (!img || !img.trim()) return "/img/hero.jpg";
-  return img.startsWith("/") ? img : `/img/operators/${img}`;
-}
-
-/* ---------- static params ---------- */
 export function generateStaticParams() {
-  const services = Array.isArray(site?.services) ? site.services : [];
   return services.map((s) => ({ slug: s.slug }));
 }
 
-/* ---------- SEO metadata per pagina servizio ---------- */
-export function generateMetadata({ params }) {
-  const services = Array.isArray(site?.services) ? site.services : [];
-  const svc = services.find((s) => s.slug === params.slug);
-  if (!svc) return { title: "Servizio — " + site.brand };
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const svc = getService(slug);
+  if (!svc) return { title: "Servizio" };
 
-  const title = `${svc.title} ad Alghero — ${site.brand}`;
-  const description =
-    svc.description ||
-    `${svc.title} presso ${site.brand} ad Alghero. Percorsi personalizzati e professionisti qualificati.`;
-  const images = (svc.images || []).map((u) => resolveServiceSrc(u));
-  const url = `https://tuodominio.it/servizi/${svc.slug}`;
+  const title = svc.seoTitle || `${svc.title} ad Alghero`;
+  const description = `${svc.description} ${site.brand}, centro multidisciplinare in ${site.addressStreet}, Alghero.`;
+  const image = img(svc.images?.[0]).src;
+  const url = `/servizi/${svc.slug}`;
 
   return {
     title,
     description,
     alternates: { canonical: url },
-    openGraph: {
-      title,
-      description,
-      url,
-      siteName: site.brand,
-      type: "article",
-      locale: "it_IT",
-      images: images.length ? images : ["/img/og-hero.jpg"],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: images.length ? images : ["/img/og-hero.jpg"],
-    },
+    openGraph: { title: `${title} — ${site.brand}`, description, url, type: "article", images: [image] },
+    twitter: { card: "summary_large_image", title, description, images: [image] },
   };
 }
 
-/* ---------- pagina servizio ---------- */
-export default function ServicePage({ params }) {
-  const { slug } = params;
-  const services = Array.isArray(site?.services) ? site.services : [];
-  const svc = services.find((s) => s.slug === slug);
+export default async function ServicePage({ params }) {
+  const { slug } = await params;
+  const svc = getService(slug);
   if (!svc) notFound();
 
-  const img = resolveServiceSrc((svc.images && svc.images[0]) || "");
-  const serviceAlt = `${svc.title} presso ${site.brand} ad Alghero`;
+  const image = img(svc.images?.[0], { alt: `${svc.title} presso ${site.brand} ad Alghero` });
+  const operators = membersForService(slug);
+  const others = services.filter((s) => s.slug !== slug);
+  // Stanza in cui si svolge il servizio: quella del primo operatore che ne ha una
+  const roomOwner = operators.find((m) => m.room?.src);
+  const room = roomOwner?.room;
 
-  // Operatori collegati (supporta serviceSlug + serviceSlugs) + famiglia psicologia
-  const rawTeam = Array.isArray(site?.team) ? site.team : [];
-  const familyMap = {
-    psicologia: ["psicologia", "psicologia-andrea"],
-    "psicologia-andrea": ["psicologia", "psicologia-andrea"],
-  };
-  const family = familyMap[slug] ?? [slug];
-
-  const team = rawTeam
-    .filter((m) => {
-      const one = m.serviceSlug && family.includes(m.serviceSlug);
-      const many =
-        Array.isArray(m.serviceSlugs) &&
-        m.serviceSlugs.some((s) => family.includes(s));
-      return one || many;
-    })
-    .filter((m, i, arr) => arr.findIndex((x) => x.slug === m.slug) === i);
-
-  /* -------- JSON-LD (dati strutturati) -------- */
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalTherapy", // tipo generico di servizio sanitario
-    "name": svc.title,
-    "description": svc.description || undefined,
-    "areaServed": "Alghero (SS), Sardegna",
-    "provider": {
-      "@type": "MedicalClinic",
-      "name": site.brand,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": site.address,
-        "addressLocality": "Alghero",
-        "addressRegion": "SS",
-        "addressCountry": "IT",
-      },
-      "url": "https://tuodominio.it",
-      "email": site.email,
-    },
-    "url": `https://tuodominio.it/servizi/${svc.slug}`,
-    "image": (svc.images || []).map((u) => resolveServiceSrc(u)),
+    "@type": "MedicalTherapy",
+    name: svc.title,
+    description: svc.description,
+    url: absoluteUrl(`/servizi/${svc.slug}`),
+    image: absoluteUrl(image.src),
+    areaServed: "Alghero (SS), Sardegna",
+    provider: { "@type": "MedicalClinic", name: site.brand, url: absoluteUrl("/") },
   };
 
   return (
-    <div className="container overflow-x-hidden py-8 sm:py-10 md:py-14">
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* Intestazione */}
-      <header className="mb-6 sm:mb-8 md:mb-10">
-        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl">
-          {svc.title}
-        </h1>
-        {svc.description && (
-          <p className="p mt-2 max-w-2xl">{svc.description}</p>
-        )}
-      </header>
+      {/* ===== Intestazione ===== */}
+      <section className="relative overflow-hidden">
+        <div className="blob -top-32 -right-32 h-[420px] w-[420px] bg-[var(--sage-soft)] opacity-90" />
+        <div className="container relative grid gap-8 lg:gap-14 py-10 md:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <nav aria-label="Percorso" className="text-[13px] text-[var(--muted)]">
+              <Link href="/" className="link-quiet">Home</Link>
+              <span className="mx-2">/</span>
+              <Link href="/#servizi" className="link-quiet">Servizi</Link>
+              <span className="mx-2">/</span>
+              <span aria-current="page">{svc.title}</span>
+            </nav>
+            <div className="mt-5 flex items-center gap-3">
+              <span className="grid h-12 w-12 place-items-center rounded-full bg-white border border-[var(--border)] text-[var(--sage-strong)] shadow-soft-1">
+                <ServiceIcon name={svc.icon} className="h-6 w-6" />
+              </span>
+              <span className="eyebrow">Servizio</span>
+            </div>
+            <h1 className="h1 mt-4">{svc.title}</h1>
+            <p className="lead mt-4 max-w-xl">{svc.description}</p>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <a href="#richiedi" className="btn btn-primary btn-lg">
+                Richiedi informazioni <ArrowRight />
+              </a>
+              <a href={`mailto:${site.email}?subject=${encodeURIComponent(`Informazioni: ${svc.title}`)}`} className="btn btn-ghost btn-lg">
+                Scrivi una email
+              </a>
+            </div>
+          </div>
 
-      {/* Layout: testo + immagine */}
-      <div className="grid gap-8 sm:gap-10 md:grid-cols-[1.6fr_1fr] items-start">
-        {/* Testo */}
-        <div className="relative z-10">
-          <div className="prose max-w-none">
-            {Array.isArray(svc.bullets) && svc.bullets.length > 0 ? (
-              <ul>
-                {svc.bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
+          <div className="relative mx-auto w-full max-w-[380px] lg:max-w-[440px]">
+            <div className="absolute -bottom-5 -right-5 h-32 w-32 rounded-full bg-[var(--blush)] opacity-80" aria-hidden="true" />
+            <div className="arch relative overflow-hidden border border-[var(--border)] bg-white shadow-soft-2 aspect-[4/5]">
+              <img src={image.src} alt={image.alt} className="h-full w-full object-cover" loading="eager" fetchPriority="high" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Contenuto ===== */}
+      <section className="section-tight">
+        <div className="container grid gap-10 lg:gap-16 lg:grid-cols-[1.2fr_0.8fr] items-start">
+          <div>
+            {svc.intro && <p className="p text-[17px] leading-8">{svc.intro}</p>}
+
+            {Array.isArray(svc.bullets) && svc.bullets.length > 0 && (
+              <div className="mt-8">
+                <h2 className="h3">Di cosa ci occupiamo</h2>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {svc.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-3 rounded-2xl bg-white border border-[var(--border)] p-4">
+                      <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[var(--sage-soft)] text-[var(--sage-strong)]">
+                        <Check className="h-3.5 w-3.5" />
+                      </span>
+                      <span className="text-[15px] leading-6">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Come funziona (riuso steps) */}
+            <div className="mt-10">
+              <h2 className="h3">Come si svolge</h2>
+              <ol className="mt-4 space-y-3">
+                {(site.steps || []).map((st, i) => (
+                  <li key={st.title} className="flex gap-4">
+                    <span className="font-serif text-2xl text-[var(--sage)] leading-none w-8 shrink-0">0{i + 1}</span>
+                    <div>
+                      <div className="font-medium">{st.title}</div>
+                      <p className="text-[14.5px] leading-6 text-[var(--muted)]">{st.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+
+          <aside className="space-y-6 lg:sticky lg:top-[calc(var(--nav-h)+24px)]">
+            {operators.length > 0 && (
+              <div className="card p-5">
+                <h2 className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+                  Chi se ne occupa
+                </h2>
+                <ul className="mt-4 space-y-3">
+                  {operators.map((m) => {
+                    const pic = img(m.image, { alt: m.name });
+                    return (
+                      <li key={m.slug}>
+                        <Link href={`/team/${m.slug}`} className="group flex items-center gap-3 rounded-xl p-2 -m-2 hover:bg-[var(--sage-soft)]">
+                          <img src={pic.src} alt={pic.alt} className="h-12 w-12 rounded-full object-cover object-top border border-[var(--border)]" loading="lazy" />
+                          <span className="min-w-0">
+                            <span className="block font-medium truncate">{m.name}</span>
+                            <span className="block text-[13px] text-[var(--muted)]">{m.role}</span>
+                          </span>
+                          <ArrowRight className="ml-auto h-4 w-4 opacity-0 -translate-x-1 transition group-hover:opacity-100 group-hover:translate-x-0" />
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+
+            {room && (
+              <Link href={`/team/${roomOwner.slug}`} className="card overflow-hidden block group hover-lift">
+                <div className="relative aspect-[3/2] overflow-hidden">
+                  <img src={room.src} alt={room.alt || ""} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" decoding="async" />
+                </div>
+                <div className="p-4">
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Dove si svolge</div>
+                  <div className="mt-1 font-medium">{room.caption}</div>
+                  <div className="text-[13px] text-[var(--muted)]">con {roomOwner.name}</div>
+                </div>
+              </Link>
+            )}
+
+            <div className="card p-5">
+              <h2 className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Altri servizi</h2>
+              <ul className="mt-3 divide-y divide-[var(--border)]">
+                {others.map((s) => (
+                  <li key={s.slug}>
+                    <Link href={`/servizi/${s.slug}`} className="flex items-center gap-3 py-2.5 link-quiet">
+                      <ServiceIcon name={s.icon} className="h-[18px] w-[18px] text-[var(--sage-strong)]" />
+                      <span className="text-[15px]">{s.title}</span>
+                    </Link>
+                  </li>
                 ))}
               </ul>
-            ) : (
-              <p>
-                In questo spazio potrai inserire obiettivi del percorso,
-                metodologia e cosa aspettarsi dal primo incontro.
-              </p>
-            )}
-          </div>
-
-          {/* CTA */}
-          <div className="flex flex-wrap gap-3 mt-6 sm:mt-8">
-            <a href={`mailto:${site.email}`} className="btn btn-primary px-4 py-2">
-              Prenota un colloquio
-            </a>
-            <Link href="/blog" className="btn btn-ghost px-4 py-2">
-              Approfondimenti sul blog
-            </Link>
-          </div>
-
-          {/* Operatori collegati */}
-          {team.length > 0 && (
-            <div className="mt-8 sm:mt-10">
-              <h2 className="h2 mb-3">Operatori</h2>
-
-              {/* Mobile: scroll orizzontale con snap; da sm: layout libero */}
-              <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex sm:flex-wrap gap-3 sm:gap-4 overflow-x-auto sm:overflow-visible snap-x snap-mandatory">
-                {team.map((m) => {
-                  const opSrc = resolveOperatorSrc(m.image);
-                  const opAlt = `${m.name}, ${m.role} al ${site.brand} di Alghero`;
-                  return (
-                    <Link
-                      key={m.slug}
-                      href={`/team/${m.slug}`}
-                      className="shrink-0 snap-start flex items-center gap-3 card px-3 py-2 min-w-[220px] sm:min-w-0"
-                      title={`Scopri ${m.name}, ${m.role}`}
-                    >
-                      <img
-                        src={opSrc}
-                        alt={opAlt}
-                        className="h-10 w-10 rounded-full object-cover border border-[var(--border)]"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <div>
-                        <div className="font-medium">{m.name}</div>
-                        <div className="text-xs text-[var(--muted)]">{m.role}</div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
             </div>
-          )}
+          </aside>
         </div>
+      </section>
 
-        {/* Immagine (stessa della card servizio) */}
-        <aside className="relative w-full max-w-[340px] sm:max-w-[400px] mx-auto md:mx-0 md:justify-self-end md:sticky md:top-24">
-          {/* Pattern: solo da md+, assoluto SOTTO e CLIPPATO all’area dell’immagine */}
-          <div className="hidden md:block absolute inset-0 -z-10 overflow-hidden rounded-[var(--radius)] pointer-events-none">
-            <BackgroundPattern variant="band" />
+      {/* ===== Form ===== */}
+      <section id="richiedi" className="section-tight">
+        <div className="container grid gap-8 lg:grid-cols-[0.8fr_1.2fr] items-start">
+          <div>
+            <span className="eyebrow">Richiedi informazioni</span>
+            <h2 className="h2 mt-3">Parliamo di {svc.title.toLowerCase()}</h2>
+            <p className="lead mt-3">Lascia un messaggio: ti ricontattiamo per un primo colloquio conoscitivo, senza impegno.</p>
           </div>
-
-          <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[var(--radius)] border border-[var(--border)] shadow bg-white">
-            <img
-              src={img}
-              alt={serviceAlt}
-              className="w-full h-full object-cover object-center"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </aside>
-      </div>
-    </div>
+          <ContattiForm defaultService={svc.title} />
+        </div>
+      </section>
+    </>
   );
 }
