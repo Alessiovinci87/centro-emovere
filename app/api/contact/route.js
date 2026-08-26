@@ -1,5 +1,9 @@
-// app/api/contact/route.js — riceve il form contatti e lo inoltra via email con Web3Forms.
-// La chiave WEB3FORMS_KEY resta sul server (variabile d'ambiente su Vercel), mai nel browser.
+// app/api/contact/route.js — riceve il form contatti e lo inoltra via email.
+//
+// Provider (in ordine di priorità, tutti configurati solo con variabili d'ambiente su Vercel):
+//   1. Resend     → RESEND_API_KEY  (+ opzionali CONTACT_TO, CONTACT_FROM). Destinatario libero.
+//   2. Web3Forms  → WEB3FORMS_KEY   (il destinatario è l'email che ha creato la chiave; copia a CONTACT_TO).
+// Se nessuna chiave è presente il form mostra il fallback "scrivici via email".
 import site from "@/content/site.config.json";
 
 export const runtime = "nodejs";
@@ -8,7 +12,7 @@ const MAX = { nome: 120, email: 200, telefono: 40, servizio: 80, messaggio: 4000
 const clean = (v, max) => String(v ?? "").trim().slice(0, max);
 const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
 
-// Rate limit minimale per istanza (10 invii / 10 minuti per IP): frena gli abusi più grossolani.
+// Rate limit minimale per istanza (10 invii / 10 minuti per IP)
 const hits = new Map();
 function limited(ip) {
   const now = Date.now();
@@ -16,6 +20,57 @@ function limited(ip) {
   list.push(now);
   hits.set(ip, list);
   return list.length > 10;
+}
+
+function buildMessage(d) {
+  const subject = `Nuovo messaggio dal sito — ${d.servizio || "Orientamento"} — ${d.nome}`;
+  const text = [
+    `Nome: ${d.nome}`,
+    `Email: ${d.email}`,
+    `Telefono: ${d.telefono || "—"}`,
+    `Servizio: ${d.servizio || "Non indicato / orientamento"}`,
+    `Consenso privacy: sì`,
+    ``,
+    `Messaggio:`,
+    d.messaggio,
+    ``,
+    `— Inviato dal form di ${site.brand} (${site.siteUrl})`,
+  ].join("\n");
+  return { subject, text };
+}
+
+async function sendWithResend(d) {
+  const to = (process.env.CONTACT_TO || site.email).split(",").map((s) => s.trim()).filter(Boolean);
+  const from = process.env.CONTACT_FROM || `${site.brand} <noreply@centroemovere.it>`;
+  const { subject, text } = buildMessage(d);
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.RESEND_API_KEY}` },
+    body: JSON.stringify({ from, to, reply_to: d.email, subject, text }),
+  });
+  if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text().catch(() => "")}`);
+}
+
+async function sendWithWeb3Forms(d) {
+  const { subject } = buildMessage(d);
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      access_key: process.env.WEB3FORMS_KEY,
+      subject,
+      from_name: `${site.brand} — sito web`,
+      replyto: d.email,
+      ccemail: process.env.CONTACT_TO || site.email,
+      Nome: d.nome,
+      Email: d.email,
+      Telefono: d.telefono || "—",
+      Servizio: d.servizio || "Non indicato / orientamento",
+      Messaggio: d.messaggio,
+      "Consenso privacy": "Sì",
+    }),
+  });
+  if (!res.ok) throw new Error(`Web3Forms ${res.status}: ${await res.text().catch(() => "")}`);
 }
 
 export async function POST(request) {
@@ -45,32 +100,15 @@ export async function POST(request) {
     return Response.json({ ok: false, error: "Compila nome, email, messaggio e consenso privacy." }, { status: 422 });
   }
 
-  const key = process.env.WEB3FORMS_KEY;
-  if (!key) {
-    console.error("[contact] WEB3FORMS_KEY non configurata");
-    return Response.json({ ok: false, error: "Invio non disponibile al momento." }, { status: 503 });
-  }
-
-  const res = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify({
-      access_key: key,
-      subject: `Nuovo messaggio dal sito — ${data.servizio || "Orientamento"} — ${data.nome}`,
-      from_name: `${site.brand} — sito web`,
-      replyto: data.email,
-      ccemail: site.email, // copia al centro, oltre all'indirizzo che ha creato la chiave
-      Nome: data.nome,
-      Email: data.email,
-      Telefono: data.telefono || "—",
-      Servizio: data.servizio || "Non indicato / orientamento",
-      Messaggio: data.messaggio,
-      "Consenso privacy": "Sì",
-    }),
-  });
-
-  if (!res.ok) {
-    console.error("[contact] Web3Forms", res.status, await res.text().catch(() => ""));
+  try {
+    if (process.env.RESEND_API_KEY) await sendWithResend(data);
+    else if (process.env.WEB3FORMS_KEY) await sendWithWeb3Forms(data);
+    else {
+      console.error("[contact] nessun provider configurato (RESEND_API_KEY o WEB3FORMS_KEY)");
+      return Response.json({ ok: false, error: "Invio non disponibile al momento." }, { status: 503 });
+    }
+  } catch (err) {
+    console.error("[contact]", err?.message || err);
     return Response.json({ ok: false, error: "Invio non riuscito." }, { status: 502 });
   }
 
