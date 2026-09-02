@@ -1,0 +1,29 @@
+{
+  "slug": "perche-lo-fa-funzioni-del-comportamento",
+  "title": "Perché lo fa? Comprendere le funzioni del comportamento",
+  "excerpt": "Quando un bambino urla, si oppone o scappa, la domanda utile non è \"come faccio a farlo smettere?\" ma \"che cosa sta cercando di comunicare?\".",
+  "date": "2026-09-02",
+  "author": "martina",
+  "service": "educazione-professionale",
+  "cover": {
+    "src": "/img/services/educazione-professionale-martina-salis-alghero-centro-emovere.jpg",
+    "alt": "Bambino durante un'attività di educazione professionale"
+  },
+  "readingTime": "3 min",
+  "body": [
+    { "type": "h2", "text": "Un comportamento ha sempre una funzione" },
+    { "type": "p", "text": "Quando un bambino urla, si oppone, scappa da una situazione, lancia oggetti o fa fatica ad accettare un cambiamento, la prima domanda non dovrebbe essere soltanto \"Come facciamo a farlo smettere?\", ma \"Che cosa sta cercando di comunicare o ottenere attraverso questo comportamento?\"." },
+    { "type": "h2", "text": "Le principali funzioni del comportamento" },
+    { "type": "ul", "items": [
+      { "title": "Ottenere attenzione", "text": "Attenzione o interazione da parte di un adulto o dei compagni." },
+      { "title": "Ottenere qualcosa di desiderato", "text": "Un oggetto, un'attività, un gioco." },
+      { "title": "Evitare o interrompere", "text": "Una situazione percepita come difficile o spiacevole." },
+      { "title": "Ottenere stimolazione", "text": "Stimolazione o soddisfazione sensoriale." }
+    ]},
+    { "type": "h2", "text": "Comprendere prima di intervenire" },
+    { "type": "p", "text": "Osservare quando il comportamento compare, cosa accade prima e cosa succede dopo permette di individuare possibili cause e di progettare interventi educativi più mirati." },
+    { "type": "h2", "text": "Il ruolo dell'Educatore Professionale" },
+    { "type": "p", "text": "L'obiettivo non è semplicemente eliminare un comportamento, ma aiutare il bambino a sviluppare modalità alternative e più funzionali per comunicare i propri bisogni, aumentando progressivamente autonomia, partecipazione e competenze." },
+    { "type": "callout", "text": "Dietro un comportamento che ci mette in difficoltà c'è spesso un bisogno che ancora non trova un modo efficace per essere espresso." }
+  ]
+}
