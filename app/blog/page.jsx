@@ -84,7 +84,7 @@ function PostCard({ post, featured = false }) {
               <span className="text-[14px]"><span className="font-medium">{author.name}</span> <span className="text-[var(--muted)]">· {author.role}</span></span>
             </div>
           )}
-          <span className="link-arrow mt-4">Leggi l&apos;articolo <ArrowRight /></span>
+          <span className="link-arrow mt-4 self-end">Leggi l&apos;articolo <ArrowRight /></span>
         </div>
       </Link>
     );
