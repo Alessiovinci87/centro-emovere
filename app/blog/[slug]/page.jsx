@@ -85,7 +85,7 @@ export default async function PostPage({ params }) {
       </section>
 
       <section className="container">
-        <figure className="overflow-hidden rounded-3xl border border-[var(--border)] bg-white shadow-soft-2 aspect-[16/9] md:aspect-[21/9]">
+        <figure className="max-w-3xl overflow-hidden rounded-3xl border border-[var(--border)] bg-white shadow-soft-2 aspect-[16/9] md:aspect-[2/1] md:max-h-[340px]">
           <img src={cover.src} alt={cover.alt} className="h-full w-full object-cover" loading="eager" fetchPriority="high" />
         </figure>
       </section>
