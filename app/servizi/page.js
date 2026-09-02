@@ -7,7 +7,7 @@ import { ArrowRight } from "@/components/Icons";
 
 export const metadata = {
   title: "Servizi",
-  description: `Psicologia, logopedia, neuropsicomotricità, fisioterapia, educazione professionale e consulenza: i servizi del ${site.brand} ad Alghero.`,
+  description: `Psicologia, logopedia, neuropsicomotricità, fisioterapia, educazione professionale e parent training: i servizi del ${site.brand} ad Alghero.`,
   alternates: { canonical: "/servizi" },
 };
 

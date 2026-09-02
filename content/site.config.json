@@ -29,7 +29,7 @@
   "about": {
     "title": "Un centro, tante competenze",
     "text": [
-      "Centro Emovere nasce ad Alghero dall'idea di tre professioniste che credono nel valore del lavoro in équipe: ogni persona è unica e merita un percorso costruito intorno ai suoi bisogni, non il contrario.",
+      "Centro Emovere nasce ad Alghero dall'idea di tre professioniste che credono nel valore del lavoro in équipe. Competenze diverse si incontrano per costruire percorsi personalizzati, pensati intorno ai bisogni e alle risorse di ogni persona.",
       "Psicologia, logopedia, neuropsicomotricità, fisioterapia ed educazione professionale dialogano tra loro sotto lo stesso tetto. Questo ci permette di osservare ogni situazione da più punti di vista e di offrire risposte coordinate a bambini, ragazzi, adulti e famiglie."
     ],
     "values": [
@@ -72,11 +72,11 @@
     },
     {
       "q": "Con quali età lavorate?",
-      "a": "Con bambini, ragazzi e adulti. Neuropsicomotricità, logopedia ed educazione professionale sono rivolte soprattutto all'età evolutiva; psicologia, fisioterapia e consulenza si rivolgono a tutte le età."
+      "a": "Con bambini, ragazzi e adulti. Neuropsicomotricità, logopedia ed educazione professionale sono rivolte soprattutto all'età evolutiva; psicologia e fisioterapia si rivolgono a tutte le età, mentre il parent training è pensato per i genitori."
     },
     {
       "q": "Non so quale professionista mi serve: come faccio?",
-      "a": "È una situazione molto comune, per questo esiste il servizio di consulenza: un incontro di orientamento in cui ascoltiamo la richiesta e indichiamo il percorso più utile, anche coinvolgendo più figure del centro."
+      "a": "Non preoccuparti: scrivici raccontando in poche righe quale difficoltà stai riscontrando. Leggiamo la richiesta in équipe e sarà il professionista più adatto a ricontattarti per un primo colloquio."
     },
     {
       "q": "Collaborate con la scuola e con altri specialisti?",
@@ -109,8 +109,8 @@
     },
     {
       "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
-      "alt": "Studio di psicologia del Centro Emovere",
-      "caption": "Studio di psicologia"
+      "alt": "Studio di logopedia e psicologia del Centro Emovere",
+      "caption": "Studio di logopedia e psicologia"
     },
     {
       "src": "/img/studio/sala-fisioterapia-daniele-delrio-centro-emovere-alghero.jpg",
@@ -128,31 +128,36 @@
       "slug": "martina",
       "name": "Martina Salis",
       "firstName": "Martina",
-      "role": "Educatrice professionale",
+      "role": "Educatrice Professionale Socio-Sanitaria",
       "image": {
         "src": "/img/operators/martina-salis-educatrice-centro-emovere-alghero.jpg",
-        "alt": "Martina Salis, educatrice del Centro Emovere ad Alghero"
+        "alt": "Martina Salis, educatrice professionale socio-sanitaria del Centro Emovere ad Alghero"
       },
       "serviceSlugs": [
         "educazione-professionale",
-        "consulenza"
+        "parent-training"
       ],
       "founder": true,
       "email": "martina.salis1987@gmail.com",
-      "phone": "3400841926",
+      "phone": "340 084 1926",
       "socials": {
         "instagram": "",
         "facebook": "",
         "linkedin": ""
       },
-      "bio": [],
+      "bio": [
+        "Sono Educatrice Professionale Socio-Sanitaria e lavoro da oltre 15 anni nell'ambito dell'età evolutiva, prevalentemente con bambini della scuola dell'infanzia e primaria.",
+        "Ho conseguito la Laurea in Scienze dell'Educazione e un Master di I livello in Analisi Applicata del Comportamento. Mi occupo di interventi educativi rivolti a difficoltà comportamentali, regolazione emotiva, autonomie, attenzione e competenze sociali.",
+        "Nel mio lavoro considero centrale la collaborazione con la famiglia e con la scuola: attraverso il parent training supporto i genitori nell'acquisizione di strategie educative efficaci e applicabili nella quotidianità."
+      ],
       "room": {
         "src": "/img/studio/studio-educatrice-martina-salis-centro-emovere-alghero.jpg",
         "alt": "Lo studio di Martina Salis al Centro Emovere",
         "caption": "Lo studio di educazione professionale"
       },
-      "vatNumber": "",
-      "registration": ""
+      "vatNumber": "02989280900",
+      "registration": "Iscritta all'Albo TSRM-PSTRP della provincia di Sassari, Elenco Speciale n. 17",
+      "whatsapp": "3400841926"
     },
     {
       "slug": "giulia",
@@ -165,7 +170,7 @@
       },
       "serviceSlugs": [
         "psicologia",
-        "consulenza"
+        "parent-training"
       ],
       "founder": true,
       "email": "",
@@ -178,8 +183,8 @@
       "bio": [],
       "room": {
         "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
-        "alt": "Lo studio di psicologia di Giulia Motzo al Centro Emovere",
-        "caption": "Lo studio di psicologia"
+        "alt": "Lo studio di logopedia e psicologia in cui riceve Giulia Motzo al Centro Emovere",
+        "caption": "Lo studio di logopedia e psicologia"
       },
       "vatNumber": "",
       "registration": ""
@@ -236,8 +241,8 @@
       "bio": [],
       "room": {
         "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
-        "alt": "La stanza in cui Alessandra Marrosu svolge le sedute di logopedia al Centro Emovere",
-        "caption": "La stanza di logopedia"
+        "alt": "Lo studio di logopedia e psicologia in cui riceve Alessandra Marrosu al Centro Emovere",
+        "caption": "Lo studio di logopedia e psicologia"
       },
       "vatNumber": "",
       "registration": ""
@@ -294,8 +299,8 @@
       "bio": [],
       "room": {
         "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
-        "alt": "Lo studio di psicologia in cui riceve Letizia Pala al Centro Emovere",
-        "caption": "Lo studio di psicologia"
+        "alt": "Lo studio di logopedia e psicologia in cui riceve Letizia Pala al Centro Emovere",
+        "caption": "Lo studio di logopedia e psicologia"
       },
       "vatNumber": "",
       "registration": ""
@@ -306,8 +311,8 @@
       "slug": "educazione-professionale",
       "title": "Educazione professionale",
       "icon": "educazione",
-      "description": "Percorsi educativi individualizzati per bambini, ragazzi e famiglie.",
-      "intro": "L'educatore professionale lavora sull'autonomia, le competenze sociali e la quotidianità, costruendo insieme alla famiglia strategie concrete e sostenibili.",
+      "description": "Percorsi educativi individualizzati per bambini e famiglie.",
+      "intro": "Sostegno allo sviluppo delle autonomie, delle competenze sociali e della regolazione emotiva e comportamentale attraverso interventi educativi individualizzati.",
       "images": [
         {
           "src": "/img/services/educazione-professionale-martina-salis-alghero-centro-emovere.jpg",
@@ -315,12 +320,14 @@
         }
       ],
       "bullets": [
-        "Sviluppo delle autonomie personali e sociali",
-        "Supporto educativo in caso di difficoltà comportamentali",
-        "Accompagnamento allo studio e all'organizzazione",
-        "Lavoro in rete con scuola e famiglia"
+        "Autonomie e competenze sociali",
+        "Difficoltà comportamentali e regolazione emotiva",
+        "Attenzione e organizzazione",
+        "Parent training e collaborazione con la scuola"
       ],
-      "seoTitle": "Educatore professionale ad Alghero"
+      "seoTitle": "Educatore professionale ad Alghero",
+      "color": "sage",
+      "outro": "Un lavoro personalizzato, in collaborazione con bambino, famiglia e scuola, per favorire competenze funzionali e strategie efficaci nella quotidianità."
     },
     {
       "slug": "psicologia",
@@ -340,7 +347,8 @@
         "Gestione di ansia, stress e momenti di cambiamento",
         "Valutazione e percorsi in rete con le altre figure del centro"
       ],
-      "seoTitle": "Psicologo ad Alghero"
+      "seoTitle": "Psicologo ad Alghero",
+      "color": "mauve"
     },
     {
       "slug": "neuropsicomotricita",
@@ -360,7 +368,8 @@
         "Regolazione emotiva e attenzione attraverso il gioco",
         "Sostegno ai prerequisiti degli apprendimenti"
       ],
-      "seoTitle": "Neuropsicomotricista ad Alghero"
+      "seoTitle": "Neuropsicomotricista ad Alghero",
+      "color": "gold"
     },
     {
       "slug": "logopedia",
@@ -380,7 +389,8 @@
         "Disturbi specifici dell'apprendimento (lettura, scrittura, calcolo)",
         "Deglutizione atipica e disturbi della voce"
       ],
-      "seoTitle": "Logopedista ad Alghero"
+      "seoTitle": "Logopedista ad Alghero",
+      "color": "blue"
     },
     {
       "slug": "fisioterapia",
@@ -400,27 +410,34 @@
         "Terapia manuale ed esercizio terapeutico",
         "Prevenzione e rieducazione posturale"
       ],
-      "seoTitle": "Fisioterapista ad Alghero"
+      "seoTitle": "Fisioterapista ad Alghero",
+      "color": "teal"
     },
     {
-      "slug": "consulenza",
-      "title": "Consulenza",
-      "icon": "consulenza",
-      "description": "Un primo confronto per orientarsi e capire insieme quale percorso sia più adatto.",
-      "intro": "Non sempre è chiaro da dove iniziare. La consulenza è un incontro di orientamento in cui ascoltiamo la tua situazione e ti indirizziamo verso la figura o il percorso più utile.",
+      "slug": "parent-training",
+      "title": "Parent Training",
+      "icon": "parent-training",
+      "color": "blush",
+      "description": "Percorsi rivolti ai genitori, in area psicologica ed educativa, per una relazione più consapevole con i propri figli.",
+      "intro": "Il parent training è un percorso pensato per i genitori: uno spazio in cui comprendere meglio i bisogni e i comportamenti del bambino e acquisire strumenti concreti da portare nella vita di tutti i giorni. Si sviluppa in due aree, psicologica ed educativa, che possono integrarsi tra loro.",
       "images": [
         {
-          "src": "/img/services/consulenza-orientamento-alghero-centro-emovere.jpg",
-          "alt": "Consulenza e orientamento al Centro Emovere di Alghero"
+          "src": "/img/services/parent-training-martina-salis-alghero-centro-emovere.jpg",
+          "alt": "Parent training per genitori al Centro Emovere di Alghero"
         }
       ],
-      "bullets": [
-        "Colloquio conoscitivo e di orientamento",
-        "Consulenza a genitori, insegnanti ed educatori",
-        "Indicazioni sul percorso più adatto e sui tempi",
-        "Coordinamento con le altre figure del centro"
+      "areas": [
+        {
+          "title": "Parent Training – Area Psicologica",
+          "text": "Percorsi rivolti ai genitori per comprendere meglio i bisogni emotivi e favorire una relazione più consapevole e funzionale con i propri figli."
+        },
+        {
+          "title": "Parent Training – Area Educativa",
+          "text": "Percorsi rivolti ai genitori per comprendere il comportamento del bambino e acquisire strategie educative concrete, finalizzate a favorire autonomie, competenze e comportamenti funzionali nella quotidianità."
+        }
       ],
-      "seoTitle": "Consulenza psicologica ed educativa ad Alghero"
+      "bullets": [],
+      "seoTitle": "Parent training psicologico ed educativo ad Alghero"
     }
   ],
   "legalNote": "Studio professionale condiviso: ogni professionista opera in autonomia con la propria partita IVA."

@@ -266,3 +266,21 @@ html { overscroll-behavior-y: none; -webkit-text-size-adjust: 100%; }
   .crumb-back { display: inline-flex !important; align-items: center; gap: 2px; font-weight: 500; color: var(--sage-strong); }
 }
 @media (min-width: 768px) { .crumb-back { display: none !important; } }
+
+/* =========================================================
+   Card servizi "a cupola" — colori per area (vedi ServiceCard.jsx)
+   ========================================================= */
+:root {
+  --svc-sage: #7d9268;        --svc-sage-soft: #e9efe0;
+  --svc-blue: #3f6d8e;        --svc-blue-soft: #e3edf3;
+  --svc-mauve: #9a6f88;       --svc-mauve-soft: #f1e6ec;
+  --svc-teal: #5f9a9a;        --svc-teal-soft: #e2f0ef;
+  --svc-gold: #c9962d;        --svc-gold-soft: #f7edd6;
+  --svc-blush: #c48a7a;       --svc-blush-soft: #f6e6e0;
+}
+.svc-card { --svc: var(--svc-sage); --svc-soft: var(--svc-sage-soft); }
+.svc-halo { border: 2px solid var(--svc); border-bottom-color: transparent; opacity: .55; transition: opacity .25s ease; }
+.svc-card:hover .svc-halo { opacity: .9; }
+.svc-icon { background: var(--svc); box-shadow: 0 0 0 5px var(--surface), var(--shadow-1); }
+.svc-title { color: var(--svc); }
+.svc-rule { background: linear-gradient(90deg, transparent, var(--svc), transparent); }

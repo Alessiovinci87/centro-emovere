@@ -101,6 +101,17 @@ export default async function ServicePage({ params }) {
           <div>
             {svc.intro && <p className="p text-[17px] leading-8">{svc.intro}</p>}
 
+            {Array.isArray(svc.areas) && svc.areas.length > 0 && (
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {svc.areas.map((a) => (
+                  <div key={a.title} className="rounded-2xl bg-white border border-[var(--border)] p-5">
+                    <h2 className="h3 text-[18px]">{a.title}</h2>
+                    <p className="mt-2 text-[15px] leading-6 text-[var(--muted)]">{a.text}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
             {Array.isArray(svc.bullets) && svc.bullets.length > 0 && (
               <div className="mt-8">
                 <h2 className="h3">Di cosa ci occupiamo</h2>
@@ -116,6 +127,8 @@ export default async function ServicePage({ params }) {
                 </ul>
               </div>
             )}
+
+            {svc.outro && <p className="p mt-6 text-[var(--muted)]">{svc.outro}</p>}
 
             {/* Come funziona (riuso steps) */}
             <div className="mt-10">

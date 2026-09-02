@@ -5,6 +5,7 @@ import site, { team, getMember, servicesForMember, img, cleanTel, absoluteUrl } 
 import TeamCard from "@/components/TeamCard";
 import { ArrowRight, ChevronLeftSmall, Instagram, Mail, Phone, ServiceIcon } from "@/components/Icons";
 import HScroll from "@/components/HScroll";
+import { WhatsAppIcon } from "@/components/WhatsAppButton";
 
 export function generateStaticParams() {
   return team.map((m) => ({ slug: m.slug }));
@@ -31,7 +32,7 @@ export default async function TeamMemberPage({ params }) {
   const pic = img(member.image, { alt: `${member.name}, ${member.role}` });
   const svcs = servicesForMember(member);
   const colleagues = team.filter((m) => m.slug !== member.slug);
-  const hasContacts = member.email || member.phone || member.socials?.instagram || member.socials?.facebook || member.socials?.linkedin;
+  const hasContacts = member.email || member.phone || member.whatsapp || member.socials?.instagram || member.socials?.facebook || member.socials?.linkedin;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -115,6 +116,11 @@ export default async function TeamMemberPage({ params }) {
                 {member.phone && (
                   <a href={`tel:${cleanTel(member.phone)}`} className="btn btn-ghost">
                     <Phone className="h-[18px] w-[18px]" /> {member.phone}
+                  </a>
+                )}
+                {member.whatsapp && (
+                  <a href={`https://wa.me/39${cleanTel(member.whatsapp).replace(/^\+?39/, "")}`} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+                    <WhatsAppIcon /> WhatsApp
                   </a>
                 )}
                 {member.socials?.instagram && (

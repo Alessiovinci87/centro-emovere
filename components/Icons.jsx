@@ -146,6 +146,7 @@ export function Check({ className = "h-4 w-4" }) {
 
 /* ---------- Icone servizi ---------- */
 const service = {
+  // cervello
   psicologia: (
     <>
       <path d="M9.5 3.5a4 4 0 0 0-4 4v1a3 3 0 0 0-1.5 5.5A3.5 3.5 0 0 0 7 20h2.5" />
@@ -153,38 +154,43 @@ const service = {
       <path d="M12 3.5V20M9 9h3M12 13h3" />
     </>
   ),
+  // profilo che parla
   logopedia: (
     <>
-      <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h9A2.5 2.5 0 0 1 18 6.5v5a2.5 2.5 0 0 1-2.5 2.5H10l-4 3.5V14a2.5 2.5 0 0 1-2-2.5z" />
-      <path d="M8 8.5h6M8 11h4" />
-      <path d="M20 9a3 3 0 0 1 0 4M21.8 6.8a6 6 0 0 1 0 8.4" />
+      <path d="M13.5 4.5a5 5 0 0 0-6.5 4.8v2.2L5.5 14h1.5v2.5a2 2 0 0 0 2 2H12v2" />
+      <path d="M11 9.5h.01" />
+      <path d="M16 8.5a3.5 3.5 0 0 1 0 5M18.5 6.3a6.5 6.5 0 0 1 0 9.4M21 4a9.5 9.5 0 0 1 0 14" />
     </>
   ),
+  // bambino in movimento
   neuropsicomotricita: (
     <>
-      <circle cx="12" cy="4.5" r="1.8" />
-      <path d="M9 9.5l3-1 3 1 2.5 3.5M12 8.5l-1.5 5L8 20M12 8.5l1.5 5L16 20M10.5 13.5h3" />
+      <circle cx="12" cy="4.5" r="2" />
+      <path d="M12 8v5.5M12 8l-4.5 2.5M12 8l4.5 3.5M12 13.5L8.5 20M12 13.5l3.5 6.5" />
     </>
   ),
+  // colonna vertebrale
   fisioterapia: (
     <>
-      <path d="M4 12h3l2-5 3 10 2-6 1.5 1H20" />
-      <path d="M3 18h18" />
+      <path d="M12 3v18" />
+      <path d="M9 5.5h6M8.5 8.5h7M8 11.5h8M8.5 14.5h7M9 17.5h6M9.5 20.5h5" />
     </>
   ),
+  // germoglio
   educazione: (
     <>
-      <path d="M3 7.5l9-4 9 4-9 4-9-4z" />
-      <path d="M7 10v5c0 1.5 2.2 3 5 3s5-1.5 5-3v-5" />
-      <path d="M21 7.5v6" />
+      <path d="M12 21v-9" />
+      <path d="M12 12c0-3.5 2.5-6 6-6 0 3.5-2.5 6-6 6z" />
+      <path d="M12 15c0-3-2-5-5.5-5 0 3 2 5 5.5 5z" />
+      <path d="M7 21h10" />
     </>
   ),
-  consulenza: (
+  // casa con cuore (genitori e famiglia)
+  "parent-training": (
     <>
-      <circle cx="9" cy="8" r="3" />
-      <path d="M3.5 19a5.5 5.5 0 0 1 11 0" />
-      <path d="M16 5.5a2.5 2.5 0 1 1 0 5" />
-      <path d="M17.5 14.5a4.5 4.5 0 0 1 3 4.5" />
+      <path d="M3.5 11L12 4l8.5 7" />
+      <path d="M5.5 9.5V20h13V9.5" />
+      <path d="M12 17.5s-3.5-2.2-3.5-4.5a1.9 1.9 0 0 1 3.5-1 1.9 1.9 0 0 1 3.5 1c0 2.3-3.5 4.5-3.5 4.5z" />
     </>
   ),
 };
@@ -192,7 +198,7 @@ const service = {
 export function ServiceIcon({ name, className = "h-6 w-6" }) {
   return (
     <svg {...base} className={className}>
-      {service[name] ?? service.consulenza}
+      {service[name] ?? service.educazione}
     </svg>
   );
 }
