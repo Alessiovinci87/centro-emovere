@@ -284,3 +284,11 @@ html { overscroll-behavior-y: none; -webkit-text-size-adjust: 100%; }
 .svc-icon { background: var(--svc); box-shadow: 0 0 0 5px var(--surface), var(--shadow-1); }
 .svc-title { color: var(--svc); }
 .svc-rule { background: linear-gradient(90deg, transparent, var(--svc), transparent); }
+
+/* Menu del pulsante Email (EmailButton.client.jsx) */
+.email-item { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 10px 12px; border-radius: 12px; font-size: 14.5px; }
+.email-item:hover, .email-item:focus-visible { background: var(--sage-soft); color: var(--sage-strong); }
+
+/* Footer */
+.footer-title { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.footer-ico { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 9999px; background: var(--sage-soft); color: var(--sage-strong); flex-shrink: 0; margin-top: 2px; }

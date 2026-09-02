@@ -3,8 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import site, { team, getMember, servicesForMember, img, cleanTel, absoluteUrl } from "@/lib/site";
 import TeamCard from "@/components/TeamCard";
-import { ArrowRight, ChevronLeftSmall, Instagram, Mail, Phone, ServiceIcon } from "@/components/Icons";
+import { ArrowRight, ChevronLeftSmall, Instagram, Phone, ServiceIcon } from "@/components/Icons";
 import HScroll from "@/components/HScroll";
+import EmailButton from "@/components/EmailButton.client";
 import { WhatsAppIcon } from "@/components/WhatsAppButton";
 
 export function generateStaticParams() {
@@ -108,11 +109,7 @@ export default async function TeamMemberPage({ params }) {
                 <Link href="/contatti" className="btn btn-primary">
                   Prenota un colloquio <ArrowRight />
                 </Link>
-                {member.email && (
-                  <a href={`mailto:${member.email}`} className="btn btn-ghost">
-                    <Mail className="h-[18px] w-[18px]" /> Email
-                  </a>
-                )}
+                {member.email && <EmailButton email={member.email} subject={`Richiesta informazioni — ${member.name}`} />}
                 {member.phone && (
                   <a href={`tel:${cleanTel(member.phone)}`} className="btn btn-ghost">
                     <Phone className="h-[18px] w-[18px]" /> {member.phone}
