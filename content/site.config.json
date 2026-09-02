@@ -72,7 +72,7 @@
     },
     {
       "q": "Con quali età lavorate?",
-      "a": "Con bambini, ragazzi e adulti. Neuropsicomotricità, logopedia ed educazione professionale sono rivolte soprattutto all'età evolutiva; psicologia e fisioterapia si rivolgono a tutte le età, mentre il parent training è pensato per i genitori."
+      "a": "Con bambini, ragazzi e adulti. Neuropsicomotricità, logopedia ed educazione professionale sono rivolte soprattutto all'età evolutiva; psicologia e fisioterapia si rivolgono a tutte le età, mentre il parent training è pensato per i genitori e per le altre figure di riferimento che si prendono cura dei bambini."
     },
     {
       "q": "Non so quale professionista mi serve: come faccio?",
@@ -173,21 +173,26 @@
         "parent-training"
       ],
       "founder": true,
-      "email": "",
-      "phone": "",
+      "email": "giuliamotzo@gmail.com",
+      "phone": "347 235 1613",
       "socials": {
         "instagram": "",
         "facebook": "",
         "linkedin": ""
       },
-      "bio": [],
+      "bio": [
+        "La mia formazione professionale è iniziata con la logopedia, ambito in cui ho lavorato a partire dal 2014. Successivamente ho scelto di ampliare il mio percorso con un Master ABA e con gli studi in Psicologia, conseguendo prima la laurea triennale e poi quella magistrale presso l'Università di Cagliari.",
+        "Attualmente lavoro come psicologa, principalmente con adolescenti e adulti, e sto concludendo la scuola di specializzazione in psicoterapia cognitivo-comportamentale.",
+        "Ho scelto questo lavoro perché mi permette di accompagnare le persone nella comprensione di sé e dei propri vissuti, aiutandole a costruire cambiamenti concreti e più funzionali nella propria vita."
+      ],
       "room": {
         "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
         "alt": "Lo studio di logopedia e psicologia in cui riceve Giulia Motzo al Centro Emovere",
         "caption": "Lo studio di logopedia e psicologia"
       },
-      "vatNumber": "",
-      "registration": ""
+      "vatNumber": "02599520901",
+      "registration": "Iscritta all'Ordine degli Psicologi della Sardegna n. 3667",
+      "whatsapp": "3472351613"
     },
     {
       "slug": "valentina",
