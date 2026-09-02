@@ -70,21 +70,21 @@ function PostCard({ post, featured = false }) {
 
   if (featured) {
     return (
-      <Link href={`/blog/${post.slug}`} className="group card overflow-hidden hover-lift grid md:grid-cols-[0.9fr_1.1fr]">
-        <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[320px] overflow-hidden">
+      <Link href={`/blog/${post.slug}`} className="group card overflow-hidden hover-lift grid md:grid-cols-[0.8fr_1.2fr] md:max-h-[300px]">
+        <div className="relative aspect-[16/10] md:aspect-auto md:h-[300px] overflow-hidden">
           <img src={cover.src} alt={cover.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="eager" />
         </div>
-        <div className="p-6 md:p-10 flex flex-col">
+        <div className="p-6 md:p-7 flex flex-col">
           {meta}
           <h2 className="h2 mt-3">{post.title}</h2>
-          <p className="mt-3 text-[16px] leading-7 text-[var(--muted)]">{post.excerpt}</p>
+          <p className="mt-2 text-[15px] leading-6 text-[var(--muted)] line-clamp-2">{post.excerpt}</p>
           {author && (
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-4 flex items-center gap-3">
               <img src={img(author.image).src} alt="" className="h-9 w-9 rounded-full object-cover object-top border border-[var(--border)]" loading="lazy" />
               <span className="text-[14px]"><span className="font-medium">{author.name}</span> <span className="text-[var(--muted)]">· {author.role}</span></span>
             </div>
           )}
-          <span className="link-arrow mt-auto pt-6">Leggi l&apos;articolo <ArrowRight /></span>
+          <span className="link-arrow mt-auto pt-4">Leggi l&apos;articolo <ArrowRight /></span>
         </div>
       </Link>
     );
