@@ -117,7 +117,7 @@ export default async function TeamMemberPage({ params }) {
                 )}
                 {member.whatsapp && (
                   <a href={`https://wa.me/39${cleanTel(member.whatsapp).replace(/^\+?39/, "")}`} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-                    <WhatsAppIcon /> WhatsApp
+                    <WhatsAppIcon className="h-5 w-5 text-[#25D366]" /> WhatsApp
                   </a>
                 )}
                 {member.socials?.instagram && (
