@@ -74,7 +74,7 @@ function PostCard({ post, featured = false }) {
         <div className="relative aspect-[16/10] md:aspect-auto md:h-[300px] overflow-hidden">
           <img src={cover.src} alt={cover.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="eager" />
         </div>
-        <div className="p-6 md:p-7 flex flex-col">
+        <div className="p-6 md:px-8 md:py-6 flex flex-col justify-center">
           {meta}
           <h2 className="h2 mt-3">{post.title}</h2>
           <p className="mt-2 text-[15px] leading-6 text-[var(--muted)] line-clamp-2">{post.excerpt}</p>
@@ -84,7 +84,7 @@ function PostCard({ post, featured = false }) {
               <span className="text-[14px]"><span className="font-medium">{author.name}</span> <span className="text-[var(--muted)]">· {author.role}</span></span>
             </div>
           )}
-          <span className="link-arrow mt-auto pt-4">Leggi l&apos;articolo <ArrowRight /></span>
+          <span className="link-arrow mt-4">Leggi l&apos;articolo <ArrowRight /></span>
         </div>
       </Link>
     );
