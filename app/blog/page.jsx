@@ -78,15 +78,13 @@ function PostCard({ post, featured = false }) {
           {meta}
           <h2 className="h2 mt-3">{post.title}</h2>
           <p className="mt-2 text-[15px] leading-6 text-[var(--muted)] line-clamp-2">{post.excerpt}</p>
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-            {author ? (
-              <div className="flex items-center gap-3">
-                <img src={img(author.image).src} alt="" className="h-9 w-9 rounded-full object-cover object-top border border-[var(--border)]" loading="lazy" />
-                <span className="text-[14px]"><span className="font-medium">{author.name}</span> <span className="text-[var(--muted)]">· {author.role}</span></span>
-              </div>
-            ) : <span />}
-            <span className="link-arrow">Leggi l&apos;articolo <ArrowRight /></span>
-          </div>
+          {author && (
+            <div className="mt-4 flex items-center gap-3">
+              <img src={img(author.image).src} alt="" className="h-9 w-9 rounded-full object-cover object-top border border-[var(--border)]" loading="lazy" />
+              <span className="text-[14px]"><span className="font-medium">{author.name}</span> <span className="text-[var(--muted)]">· {author.role}</span></span>
+            </div>
+          )}
+          <span className="link-arrow -mt-1 self-end">Leggi l&apos;articolo <ArrowRight /></span>
         </div>
       </Link>
     );
