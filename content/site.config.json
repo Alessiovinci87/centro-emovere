@@ -286,7 +286,8 @@
         "alt": "Letizia Pala, psicologa del Centro Emovere ad Alghero"
       },
       "serviceSlugs": [
-        "psicologia"
+        "psicologia",
+        "parent-training"
       ],
       "founder": false,
       "email": "",
@@ -419,7 +420,7 @@
       "icon": "parent-training",
       "color": "blush",
       "description": "Percorsi rivolti ai genitori, in area psicologica ed educativa, per una relazione più consapevole con i propri figli.",
-      "intro": "Il parent training è un percorso pensato per i genitori: uno spazio in cui comprendere meglio i bisogni e i comportamenti del bambino e acquisire strumenti concreti da portare nella vita di tutti i giorni. Si sviluppa in due aree, psicologica ed educativa, che possono integrarsi tra loro.",
+      "intro": "Il parent training offre ai genitori uno spazio di confronto e supporto per comprendere meglio le situazioni quotidiane e affrontarle con maggiore consapevolezza. Il percorso viene personalizzato in base ai bisogni della famiglia e può svilupparsi attraverso un approccio psicologico, educativo o integrato.",
       "images": [
         {
           "src": "/img/services/parent-training-martina-salis-alghero-centro-emovere.jpg",

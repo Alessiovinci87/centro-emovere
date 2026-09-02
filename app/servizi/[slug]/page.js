@@ -36,9 +36,15 @@ export default async function ServicePage({ params }) {
   const image = img(svc.images?.[0], { alt: `${svc.title} presso ${site.brand} ad Alghero` });
   const operators = membersForService(slug);
   const others = services.filter((s) => s.slug !== slug);
-  // Stanza in cui si svolge il servizio: quella del primo operatore che ne ha una
-  const roomOwner = operators.find((m) => m.room?.src);
-  const room = roomOwner?.room;
+  // Stanze in cui si svolge il servizio: una per ogni stanza diversa tra gli operatori
+  const rooms = [];
+  for (const m of operators) {
+    if (!m.room?.src) continue;
+    const found = rooms.find((r) => r.room.src === m.room.src);
+    if (found) found.owners.push(m);
+    else rooms.push({ owners: [m], room: m.room });
+  }
+  const names = (list) => list.map((m) => m.name).join(" e ");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -173,18 +179,18 @@ export default async function ServicePage({ params }) {
               </div>
             )}
 
-            {room && (
-              <Link href={`/team/${roomOwner.slug}`} className="card overflow-hidden block group hover-lift">
+            {rooms.map(({ owners, room }, i) => (
+              <Link key={room.src} href={`/team/${owners[0].slug}`} className="card overflow-hidden block group hover-lift">
                 <div className="relative aspect-[3/2] overflow-hidden">
                   <img src={room.src} alt={room.alt || ""} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" decoding="async" />
                 </div>
                 <div className="p-4">
-                  <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Dove si svolge</div>
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">{i === 0 ? "Dove si svolge" : "E anche"}</div>
                   <div className="mt-1 font-medium">{room.caption}</div>
-                  <div className="text-[13px] text-[var(--muted)]">con {roomOwner.name}</div>
+                  <div className="text-[13px] text-[var(--muted)]">con {names(owners)}</div>
                 </div>
               </Link>
-            )}
+            ))}
 
             <div className="card p-5">
               <h2 className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Altri servizi</h2>
