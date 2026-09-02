@@ -1,4 +1,5 @@
 import { services, team, absoluteUrl } from "@/lib/site";
+import { getPosts } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
@@ -11,6 +12,8 @@ export function GET() {
     { path: "/contatti", priority: "0.8" },
     ...services.map((s) => ({ path: `/servizi/${s.slug}`, priority: "0.8" })),
     ...team.map((m) => ({ path: `/team/${m.slug}`, priority: "0.6" })),
+    { path: "/blog", priority: "0.7" },
+    ...getPosts().map((p) => ({ path: `/blog/${p.slug}`, priority: "0.6" })),
   ];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>

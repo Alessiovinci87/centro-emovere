@@ -1,0 +1,31 @@
+{
+  "slug": "segnali-allarme-linguaggio-bambini",
+  "title": "Linguaggio del bambino: i segnali d'allarme per età",
+  "excerpt": "Quando è il caso di chiedere una valutazione logopedica? Una guida semplice, età per età, per riconoscere i segnali da non sottovalutare.",
+  "date": "2026-09-02",
+  "author": "alessandra",
+  "service": "logopedia",
+  "cover": {
+    "src": "/img/services/logopedia-alessandra-marrosu-bambini-alghero-centro-emovere.jpg",
+    "alt": "Bambino con un fumetto di carta in mano durante un'attività di logopedia"
+  },
+  "readingTime": "3 min",
+  "body": [
+    { "type": "p", "text": "Ogni bambino ha i suoi tempi e le differenze tra coetanei sono normali. Esistono però alcuni segnali che, se osservati con costanza, meritano attenzione: riconoscerli presto permette di intervenire quando il linguaggio è ancora in piena costruzione." },
+    { "type": "h2", "text": "Segnali d'allarme per età" },
+    { "type": "steps", "items": [
+      { "title": "12 mesi", "text": "Il bambino non produce suoni, non usa i gesti per comunicare (come indicare o salutare) e non pronuncia alcuna parola." },
+      { "title": "18 mesi", "text": "Ha un vocabolario molto ridotto, con meno di 20 parole o suoni riconoscibili." },
+      { "title": "24 mesi", "text": "Produce meno di 50 parole, non unisce due parole in frasi semplici e fatica a comprendere comandi basilari." },
+      { "title": "30-36 mesi", "text": "Non formula frasi minime, ha un linguaggio incomprensibile agli estranei o mostra una forte frustrazione quando prova a comunicare." },
+      { "title": "Dai 3 anni in poi", "text": "Sostituisce o inverte i suoni nelle parole, usa frasi sgrammaticate o balbetta." }
+    ]},
+    { "type": "h2", "text": "Altri problemi da non sottovalutare" },
+    { "type": "ul", "items": [
+      { "title": "Difficoltà di comprensione", "text": "Il bambino non reagisce ai suoni o non capisce ordini semplici fuori dal contesto visivo." },
+      { "title": "Problemi di deglutizione o masticazione", "text": "Difficoltà a deglutire, masticazione troppo lenta o disordinata." },
+      { "title": "Disfluenze e balbuzie", "text": "Alterazioni persistenti del flusso della voce o del ritmo dell'eloquio." }
+    ]},
+    { "type": "callout", "text": "È sempre utile consultare prima il pediatra di famiglia per un consiglio iniziale, oppure rivolgersi direttamente a un professionista per una valutazione preventiva." }
+  ]
+}
