@@ -55,8 +55,8 @@ export default function RootLayout({ children }) {
     url: SITE_URL,
     email: site.email,
     ...(site.phone ? { telephone: site.phone } : {}),
-    image: absoluteUrl("/img/logo-centro-emovere-alghero.jpg"),
-    logo: absoluteUrl("/img/logo-centro-emovere-alghero.jpg"),
+    image: absoluteUrl("/img/logo-centro-emovere-alghero.png"),
+    logo: absoluteUrl("/img/logo-centro-emovere-alghero.png"),
     address: {
       "@type": "PostalAddress",
       streetAddress: site.addressStreet,

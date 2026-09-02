@@ -1,8 +1,8 @@
-// components/Logo.jsx — logo wordmark (public/img/logo-centro-emovere-alghero.jpg)
+// components/Logo.jsx — logo wordmark (public/img/logo-centro-emovere-alghero.png)
 // L'immagine è 500x500 con ampi margini bianchi: il contenuto occupa circa x 65–445, y 100–300.
 // Qui viene ritagliata via CSS e fusa con lo sfondo (mix-blend-multiply) così il bianco sparisce.
 
-export const LOGO_SRC = "/img/logo-centro-emovere-alghero.jpg";
+export const LOGO_SRC = "/img/logo-centro-emovere-alghero.png";
 
 export default function Logo({ size = "md", className = "" }) {
   // scale: md 0.22 (contenuto alto 44px) · lg 0.28 (56px)
