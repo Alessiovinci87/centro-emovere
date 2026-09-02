@@ -14,7 +14,6 @@ export const metadata = {
 
 export default function BlogPage() {
   const posts = getPosts();
-  const [first, ...rest] = posts;
 
   return (
     <>
@@ -40,12 +39,7 @@ export default function BlogPage() {
         </section>
       ) : (
         <section className="container pb-4 md:pb-10 space-y-6 md:space-y-8">
-          <PostCard post={first} featured />
-          {rest.length > 0 && (
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
-              {rest.map((p) => <PostCard key={p.slug} post={p} />)}
-            </div>
-          )}
+          {posts.map((p, i) => <PostCard key={p.slug} post={p} eager={i === 0} />)}
         </section>
       )}
 
@@ -56,7 +50,7 @@ export default function BlogPage() {
   );
 }
 
-function PostCard({ post, featured = false }) {
+function PostCard({ post, eager = false }) {
   const cover = img(post.cover, { alt: post.title });
   const author = getMember(post.author);
   const service = getService(post.service);
@@ -68,38 +62,22 @@ function PostCard({ post, featured = false }) {
     </div>
   );
 
-  if (featured) {
-    return (
-      <Link href={`/blog/${post.slug}`} className="group card overflow-hidden hover-lift grid md:grid-cols-[0.8fr_1.2fr] md:max-h-[300px]">
-        <div className="relative aspect-[16/10] md:aspect-auto md:h-[300px] overflow-hidden">
-          <img src={cover.src} alt={cover.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="eager" />
-        </div>
-        <div className="p-6 md:px-8 md:py-6 flex flex-col justify-center">
-          {meta}
-          <h2 className="h2 mt-3">{post.title}</h2>
-          <p className="mt-2 text-[15px] leading-6 text-[var(--muted)] line-clamp-2">{post.excerpt}</p>
-          {author && (
-            <div className="mt-4 flex items-center gap-3">
-              <img src={img(author.image).src} alt="" className="h-9 w-9 rounded-full object-cover object-top border border-[var(--border)]" loading="lazy" />
-              <span className="text-[14px]"><span className="font-medium">{author.name}</span> <span className="text-[var(--muted)]">· {author.role}</span></span>
-            </div>
-          )}
-          <span className="link-arrow -mt-1 self-end">Leggi l&apos;articolo <ArrowRight /></span>
-        </div>
-      </Link>
-    );
-  }
-
   return (
-    <Link href={`/blog/${post.slug}`} className="group card overflow-hidden hover-lift flex flex-col h-full">
-      <div className="relative aspect-[16/10] overflow-hidden">
-        <img src={cover.src} alt={cover.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+    <Link href={`/blog/${post.slug}`} className="group card overflow-hidden hover-lift grid md:grid-cols-[0.8fr_1.2fr] md:max-h-[300px]">
+      <div className="relative aspect-[16/10] md:aspect-auto md:h-[300px] overflow-hidden">
+        <img src={cover.src} alt={cover.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading={eager ? "eager" : "lazy"} />
       </div>
-      <div className="flex flex-1 flex-col p-5">
+      <div className="p-6 md:px-8 md:py-6 flex flex-col justify-center">
         {meta}
-        <h3 className="h3 mt-2">{post.title}</h3>
-        <p className="mt-2 text-[15px] leading-6 text-[var(--muted)] line-clamp-3">{post.excerpt}</p>
-        <span className="link-arrow mt-4 text-[14.5px]">Leggi <ArrowRight /></span>
+        <h2 className="h2 mt-3">{post.title}</h2>
+        <p className="mt-2 text-[15px] leading-6 text-[var(--muted)] line-clamp-2">{post.excerpt}</p>
+        {author && (
+          <div className="mt-4 flex items-center gap-3">
+            <img src={img(author.image).src} alt="" className="h-9 w-9 rounded-full object-cover object-top border border-[var(--border)]" loading="lazy" />
+            <span className="text-[14px]"><span className="font-medium">{author.name}</span> <span className="text-[var(--muted)]">· {author.role}</span></span>
+          </div>
+        )}
+        <span className="link-arrow -mt-1 self-end">Leggi l&apos;articolo <ArrowRight /></span>
       </div>
     </Link>
   );
