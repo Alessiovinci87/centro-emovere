@@ -1,6 +1,6 @@
 {
   "slug": "perche-lo-fa-funzioni-del-comportamento",
-  "title": "Perché lo fa? Comprendere le funzioni del comportamento",
+  "title": "Perché lo fa? Comprendere la funzione del comportamento",
   "excerpt": "Quando un bambino urla, si oppone o scappa, la domanda utile non è \"come faccio a farlo smettere?\" ma \"che cosa sta cercando di comunicare?\".",
   "date": "2026-09-02",
   "author": "martina",
@@ -9,21 +9,39 @@
     "src": "/img/blog/educazione-professionale-martina-salis-centro-emovere-alghero.jpg",
     "alt": "Bambino durante un'attività di educazione professionale"
   },
-  "readingTime": "3 min",
+  "readingTime": "5 min",
   "body": [
-    { "type": "h2", "text": "Un comportamento ha sempre una funzione" },
-    { "type": "p", "text": "Quando un bambino urla, si oppone, scappa da una situazione, lancia oggetti o fa fatica ad accettare un cambiamento, la prima domanda non dovrebbe essere soltanto \"Come facciamo a farlo smettere?\", ma \"Che cosa sta cercando di comunicare o ottenere attraverso questo comportamento?\"." },
-    { "type": "h2", "text": "Le principali funzioni del comportamento" },
+    { "type": "p", "text": "Quando un bambino urla, si oppone, piange, scappa, lancia oggetti o fa fatica ad accettare una richiesta, è naturale concentrarsi sul comportamento che sta creando difficoltà." },
+    { "type": "p", "text": "Ma fermarsi a \"come facciamo a farlo smettere?\" non sempre ci permette di comprendere davvero ciò che sta accadendo. Una domanda diversa può aiutarci a guardare la situazione da un'altra prospettiva:" },
+    { "type": "callout", "text": "\"Che cosa sta cercando di comunicare o ottenere attraverso questo comportamento?\"" },
+    { "type": "h2", "text": "Un comportamento non compare nel vuoto" },
+    { "type": "p", "text": "I comportamenti, anche quelli che agli adulti possono sembrare incomprensibili o inadeguati, si manifestano all'interno di un contesto. Possono comparire, ad esempio, quando il bambino:" },
     { "type": "ul", "items": [
-      { "title": "Ottenere attenzione", "text": "Attenzione o interazione da parte di un adulto o dei compagni." },
-      { "title": "Ottenere qualcosa di desiderato", "text": "Un oggetto, un'attività, un gioco." },
-      { "title": "Evitare o interrompere", "text": "Una situazione percepita come difficile o spiacevole." },
-      { "title": "Ottenere stimolazione", "text": "Stimolazione o soddisfazione sensoriale." }
+      { "text": "cerca l'attenzione dell'adulto;" },
+      { "text": "desidera ottenere un oggetto o partecipare a un'attività;" },
+      { "text": "si trova di fronte a una richiesta che percepisce come difficile;" },
+      { "text": "vuole interrompere o evitare una situazione;" },
+      { "text": "ricerca una particolare stimolazione o sensazione." }
     ]},
+    { "type": "p", "text": "Per questo, osservare quando un comportamento si presenta, che cosa accade prima e che cosa succede dopo può fornire informazioni importanti per comprenderne la possibile funzione." },
+    { "type": "h2", "text": "Le quattro funzioni più comuni" },
+    { "type": "p", "text": "Nell'osservazione dei comportamenti si fa comunemente riferimento a quattro principali funzioni." },
+    { "type": "steps", "items": [
+      { "title": "Attenzione", "text": "Il comportamento può essere utilizzato per ottenere attenzione, interazione o vicinanza da parte di un'altra persona." },
+      { "title": "Accesso a oggetti o attività", "text": "Può servire per ottenere qualcosa di desiderato, come un gioco, un oggetto, un'attività o un'esperienza." },
+      { "title": "Fuga o evitamento", "text": "Può comparire per interrompere, rimandare o evitare una situazione, una richiesta o un'attività percepita come difficile." },
+      { "title": "Stimolazione automatica", "text": "Alcuni comportamenti possono essere legati alla ricerca di una particolare sensazione o stimolazione, indipendentemente dalla presenza di una conseguenza sociale." }
+    ]},
+    { "type": "p", "text": "È importante ricordare che uno stesso comportamento può avere funzioni diverse in momenti o contesti differenti e che più funzioni possono essere presenti contemporaneamente. La letteratura sulla valutazione funzionale mostra infatti quanto sia importante considerare il comportamento all'interno del contesto in cui si manifesta." },
     { "type": "h2", "text": "Comprendere prima di intervenire" },
-    { "type": "p", "text": "Osservare quando il comportamento compare, cosa accade prima e cosa succede dopo permette di individuare possibili cause e di progettare interventi educativi più mirati." },
-    { "type": "h2", "text": "Il ruolo dell'Educatore Professionale" },
-    { "type": "p", "text": "L'obiettivo non è semplicemente eliminare un comportamento, ma aiutare il bambino a sviluppare modalità alternative e più funzionali per comunicare i propri bisogni, aumentando progressivamente autonomia, partecipazione e competenze." },
-    { "type": "callout", "text": "Dietro un comportamento che ci mette in difficoltà c'è spesso un bisogno che ancora non trova un modo efficace per essere espresso." }
+    { "type": "p", "text": "La funzione di un comportamento non può essere stabilita semplicemente osservandolo una volta. È necessario considerare il contesto, raccogliere informazioni e osservare con attenzione ciò che accade prima e dopo il comportamento." },
+    { "type": "p", "text": "Questo permette di formulare ipotesi più accurate e di individuare modalità di intervento realmente adeguate alle esigenze del bambino. L'osservazione delle variabili ambientali e delle conseguenze che seguono un comportamento rappresenta infatti un elemento centrale nella valutazione funzionale." },
+    { "type": "p", "text": "L'obiettivo, quindi, non è semplicemente eliminare un comportamento che ci mette in difficoltà. È aiutare il bambino a sviluppare modalità più funzionali per comunicare, chiedere, rifiutare, affrontare una difficoltà o esprimere un bisogno, aumentando progressivamente le sue competenze e la sua autonomia." },
+    { "type": "callout", "text": "Dietro un comportamento che ci mette in difficoltà, c'è spesso un bisogno che ancora non trova un modo efficace per essere espresso." },
+    { "type": "sources", "items": [
+      "Carradori, G., & Sangiorgi, A. (2017). L'analisi funzionale del comportamento. Principi, metodi e tecniche. Erickson. Il volume approfondisce i presupposti, i metodi e le applicazioni della valutazione funzionale del comportamento.",
+      "Beavers, G. A., Iwata, B. A., & Lerman, D. C. (2013). Thirty years of research on the functional analysis of problem behavior. Journal of Applied Behavior Analysis, 46(1), 1–21.",
+      "Dalla Luna (2026). Analisi funzionale dei comportamenti problema, un focus. 29 luglio 2026. Articolo divulgativo dedicato alla comprensione del comportamento e al ruolo delle variabili ambientali."
+    ]}
   ]
 }

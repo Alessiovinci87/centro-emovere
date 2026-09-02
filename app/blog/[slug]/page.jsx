@@ -171,6 +171,15 @@ function Block({ block }) {
           <p className="text-[16px] leading-7">{block.text}</p>
         </div>
       );
+    case "sources":
+      return (
+        <div className="pt-6 mt-2 border-t border-[var(--border)]">
+          <h2 className="h3">{block.title || "Fonti e approfondimenti"}</h2>
+          <ul className="mt-3 space-y-2 text-[14px] leading-6 text-[var(--muted)]">
+            {block.items.map((it) => <li key={it}>{it}</li>)}
+          </ul>
+        </div>
+      );
     default:
       return null;
   }
