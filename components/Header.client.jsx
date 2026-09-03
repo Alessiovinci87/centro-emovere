@@ -41,7 +41,6 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2.5 min-w-0 active:opacity-70" aria-label={`${site.brand} — Home`}>
           <Logo className="lg:hidden" />
           <Logo size="lg" className="hidden lg:block" />
-          <span className="font-serif text-[19px] lg:text-[21px] tracking-tight truncate">{site.brand}</span>
         </Link>
 
         {/* Desktop nav */}
