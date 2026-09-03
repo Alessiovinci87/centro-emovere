@@ -38,7 +38,7 @@ export default function Header() {
     >
       <div className="container h-[var(--nav-h)] flex items-center justify-between gap-4">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-3 min-w-0 active:opacity-70" aria-label={`${site.brand} — Home`}>
+        <Link href="/" className="flex items-center gap-2.5 min-w-0 active:opacity-70" aria-label={`${site.brand} — Home`}>
           <Logo className="lg:hidden" />
           <Logo size="lg" className="hidden lg:block" />
           <span className="font-serif text-[19px] lg:text-[21px] tracking-tight truncate">{site.brand}</span>

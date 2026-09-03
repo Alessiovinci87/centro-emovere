@@ -1,25 +1,24 @@
-// components/Logo.jsx — emblema del logo (cerchio verde + archi) ridisegnato in SVG.
-// La scritta "Centro Emovere" è resa a parte, in testo, da Header e Footer: così non compare due volte.
-// Geometria ricavata da public/img/logo-centro-emovere-alghero.png (500x500): archi centrati in (263,232),
-// raggi 20/41/62/83/104; cerchio verde centrato in (192,195), raggio 92.
+// components/Logo.jsx — logo wordmark (public/img/logo-centro-emovere-alghero.png)
+// L'immagine è 500x500 con ampi margini bianchi: il contenuto occupa circa x 65–445, y 100–300.
+// Qui viene ritagliata via CSS e fusa con lo sfondo (mix-blend-multiply) così il bianco sparisce.
 
 export const LOGO_SRC = "/img/logo-centro-emovere-alghero.png";
 
-const RADII = [104, 83, 62, 41, 20];
-
 export default function Logo({ size = "md", className = "" }) {
-  const h = size === "lg" ? "h-12" : "h-10";
+  // scale: md 0.22 (contenuto alto 44px) · lg 0.28 (56px)
+  const s =
+    size === "lg"
+      ? { box: "h-14 w-[108px]", img: "w-[140px] h-[140px] left-[-18px] top-[-28px]" }
+      : { box: "h-11 w-[84px]", img: "w-[110px] h-[110px] left-[-14px] top-[-22px]" };
+
   return (
-    <svg
-      viewBox="96 98 276 194"
-      className={`block w-auto shrink-0 ${h} ${className}`}
-      aria-hidden="true"
-      focusable="false"
-    >
-      <circle cx="192" cy="195" r="92" fill="#a4b885" />
-      {RADII.map((r) => (
-        <path key={r} d={`M ${263 - r} 232 A ${r} ${r} 0 0 1 ${263 + r} 232`} fill="none" stroke="#141414" strokeWidth="5.5" strokeLinecap="round" />
-      ))}
-    </svg>
+    <span className={`relative block overflow-hidden shrink-0 ${s.box} ${className}`} aria-hidden="true">
+      <img
+        src={LOGO_SRC}
+        alt=""
+        className={`absolute max-w-none mix-blend-multiply ${s.img}`}
+        decoding="async"
+      />
+    </span>
   );
 }
