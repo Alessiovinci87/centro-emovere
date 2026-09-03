@@ -3,6 +3,8 @@ import { img } from "@/lib/site";
 
 export default function TeamCard({ member, compact = false }) {
   const m = member;
+  // Qualifiche lunghe: a capo prima di "dell'Età" (Terapista della Neuro e Psicomotricità / dell'Età Evolutiva)
+  const roleLines = String(m.role || "").split(/ (?=dell'Età)/);
   const image = img(m.image, { alt: `${m.name}, ${m.role} al Centro Emovere di Alghero` });
 
   return (
@@ -25,7 +27,7 @@ export default function TeamCard({ member, compact = false }) {
       </div>
       <div className={compact ? "mt-3" : "mt-4"}>
         <h3 className="font-serif text-[18px] leading-tight">{m.name}</h3>
-        <div className="mt-1 text-[13.5px] text-[var(--muted)]">{m.role}</div>
+        <div className="mt-1 text-[13.5px] text-[var(--muted)]">{roleLines.map((l, i) => (<span key={i} className="block">{l}</span>))}</div>
       </div>
     </Link>
   );

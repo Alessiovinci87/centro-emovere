@@ -24,7 +24,12 @@
       "src": "/img/fondatrici.jpg",
       "alt": "Le fondatrici del Centro Emovere nello studio di Alghero"
     },
-    "imageCaption": "Le fondatrici del Centro Emovere"
+    "imageCaption": "Le fondatrici del Centro Emovere",
+    "trust": [
+      "Primo colloquio conoscitivo",
+      "Dai 0 anni all'età adulta",
+      "Un'unica sede ad Alghero"
+    ]
   },
   "about": {
     "title": "Un centro, tante competenze",

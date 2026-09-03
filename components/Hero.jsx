@@ -1,12 +1,12 @@
 import Link from "next/link";
 import site from "@/content/site.config.json";
-import { ArrowRight } from "@/components/Icons";
+import { ArrowRight, Check } from "@/components/Icons";
 import WhatsAppButton, { whatsappHref } from "@/components/WhatsAppButton";
 
 export default function Hero() {
   const hero = site.hero || {};
-  const team = Array.isArray(site.team) ? site.team : [];
-  const services = Array.isArray(site.services) ? site.services : [];
+  // Tre rassicurazioni concrete al posto dei numeri (modificabili in site.config.json → hero.trust)
+  const trust = Array.isArray(hero.trust) && hero.trust.length ? hero.trust : ["Primo colloquio conoscitivo", "Dai 0 anni all'età adulta", "Un'unica sede ad Alghero"];
 
   // Titolo: ultima parola in corsivo (Playfair italic) per un tocco editoriale
   const words = (hero.title || "").split(" ");
@@ -41,20 +41,16 @@ export default function Hero() {
           </div>
 
           {/* Fiducia */}
-          <dl className="mt-7 md:mt-10 grid grid-cols-3 gap-4 max-w-md">
-            <div>
-              <dt className="text-[12px] uppercase tracking-wide text-[var(--muted)]">Aree</dt>
-              <dd className="font-serif text-2xl md:text-3xl mt-1">{services.length}</dd>
-            </div>
-            <div>
-              <dt className="text-[12px] uppercase tracking-wide text-[var(--muted)]">Professionisti</dt>
-              <dd className="font-serif text-2xl md:text-3xl mt-1">{team.length}</dd>
-            </div>
-            <div>
-              <dt className="text-[12px] uppercase tracking-wide text-[var(--muted)]">Per</dt>
-              <dd className="font-serif text-lg md:text-xl mt-1 leading-tight">Bambini, ragazzi e adulti</dd>
-            </div>
-          </dl>
+          <ul className="mt-7 md:mt-10 flex flex-wrap gap-x-6 gap-y-2.5 max-w-lg">
+            {trust.map((t) => (
+              <li key={t} className="flex items-center gap-2 text-[14px] md:text-[15px]">
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[var(--sage-soft)] text-[var(--sage-strong)]">
+                  <Check className="h-3.5 w-3.5" />
+                </span>
+                {t}
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Immagine ad arco (motivo del logo) */}
