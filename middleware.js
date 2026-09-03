@@ -9,7 +9,7 @@ const COOKIE = "emovere_preview";
 
 export const config = {
   // Tutto tranne file statici (immagini, font, manifest, favicon, chunk di Next)
-  matcher: ["/((?!_next/|img/|video/|favicon).*)"],
+  matcher: ["/((?!_next/|img/|video/|favicon|\.well-known/).*)"],
 };
 
 async function sha256(text) {
