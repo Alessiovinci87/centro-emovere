@@ -198,7 +198,7 @@
       "slug": "valentina",
       "name": "Valentina Agostara",
       "firstName": "Valentina",
-      "role": "Neuropsicomotricista",
+      "role": "Terapista della Neuro e Psicomotricità dell'Età Evolutiva",
       "image": {
         "src": "/img/operators/valentina-agostara-psicomotricista-centro-emovere-alghero.jpg",
         "alt": "Valentina Agostara, neuropsicomotricista del Centro Emovere ad Alghero"
@@ -207,21 +207,26 @@
         "neuropsicomotricita"
       ],
       "founder": true,
-      "email": "",
-      "phone": "",
+      "email": "vale.agostara@gmail.com",
+      "phone": "348 792 5692",
       "socials": {
         "instagram": "",
         "facebook": "",
         "linkedin": ""
       },
-      "bio": [],
+      "bio": [
+        "Sono Terapista della Neuro e Psicomotricità dell'Età Evolutiva e lavoro da nove anni con bambini e ragazzi da 0 a 15-16 anni: il primo anno in Puglia, gli ultimi otto ad Alghero. Mi occupo sia di valutazioni sia di trattamenti.",
+        "Ho conseguito la Laurea triennale in Terapia della Neuro e Psicomotricità dell'Età Evolutiva e un Master in DSA e disturbi del neurosviluppo.",
+        "Faccio questo lavoro perché dietro ogni bambino e ogni difficoltà c'è una risorsa che non ha ancora trovato il modo di uscire. Il mio compito è costruire insieme a loro quel modo, aiutarli a vivere e a camminare da soli, in stretta collaborazione con i genitori e con le persone che fanno parte della loro quotidianità."
+      ],
       "room": {
         "src": "/img/studio/sala-fisioterapia-neuropsicomotricita-valentina-agostara-daniele-delrio-centro-emovere-alghero.jpeg",
         "alt": "La stanza in cui Valentina Agostara svolge le sedute di neuropsicomotricità al Centro Emovere",
         "caption": "La stanza di neuropsicomotricità e fisioterapia"
       },
-      "vatNumber": "",
-      "registration": ""
+      "vatNumber": "02976910907",
+      "registration": "Iscritta all'Albo TSRM-PSTRP della provincia di Sassari, n. 11",
+      "whatsapp": "3487925692"
     },
     {
       "slug": "alessandra",
