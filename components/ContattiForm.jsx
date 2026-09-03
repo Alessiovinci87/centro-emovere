@@ -5,33 +5,7 @@ import { ArrowRight, Check } from "@/components/Icons";
 
 const services = Array.isArray(site?.services) ? site.services : [];
 
-// Invio: prima /api/contact (Resend: mail in italiano con lo stile del sito). Se sul server non c'è
-// alcun provider (503 noProvider) si ripiega su Web3Forms direttamente dal browser: il piano gratuito
-// accetta solo chiamate client-side e la chiave è pubblica per design (legata all'email del centro).
-const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
-
-async function sendWithWeb3Forms(d) {
-  const servizio = d.servizio || "Non indicato / orientamento";
-  const res = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify({
-      access_key: WEB3FORMS_KEY,
-      subject: `Nuovo messaggio dal sito — ${servizio} — ${d.nome}`,
-      from_name: `${site.brand} — sito web`,
-      replyto: d.email,
-      Nome: d.nome,
-      Email: d.email,
-      Telefono: d.telefono || "—",
-      Servizio: servizio,
-      Messaggio: d.messaggio,
-      "Consenso privacy": d.privacy ? "Sì" : "No",
-    }),
-  });
-  const json = await res.json().catch(() => ({}));
-  if (!res.ok || !json.success) throw new Error(json.message || `HTTP ${res.status}`);
-}
-
+// Invio tramite /api/contact (Resend: mail in italiano con lo stile del sito).
 async function sendWithApi(d) {
   const res = await fetch("/api/contact", {
     method: "POST",
@@ -40,7 +14,6 @@ async function sendWithApi(d) {
   });
   const json = await res.json().catch(() => ({}));
   if (res.ok && json.ok) return;
-  if (res.status === 503 && json.noProvider && WEB3FORMS_KEY) return sendWithWeb3Forms(d);
   throw new Error(json.error || `HTTP ${res.status}`);
 }
 

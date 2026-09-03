@@ -1,12 +1,7 @@
 // app/api/contact/route.js — riceve il form contatti e lo inoltra via email.
 //
-// Provider (in ordine di priorità, tutti configurati solo con variabili d'ambiente su Vercel):
-//   1. Resend     → RESEND_API_KEY  (+ opzionali CONTACT_TO, CONTACT_FROM). Destinatario libero.
-//   2. Web3Forms  → WEB3FORMS_KEY   (il destinatario è l'email che ha creato la chiave; copia opzionale a CONTACT_TO).
-//      ATTENZIONE: il piano gratuito di Web3Forms rifiuta le chiamate server-side (403 "Use our API in client side"):
-//      per Web3Forms usare NEXT_PUBLIC_WEB3FORMS_KEY, che fa inviare direttamente dal browser (components/ContattiForm.jsx).
-//      Questa via server resta utile solo con il piano Pro (IP del server autorizzato).
-// Se nessuna chiave è presente il form mostra il fallback "scrivici via email".
+// Provider: Resend → RESEND_API_KEY (+ opzionali CONTACT_TO, CONTACT_FROM), configurato solo su Vercel.
+// Se la chiave manca il form mostra il fallback "scrivici via email".
 import site from "@/content/site.config.json";
 
 export const runtime = "nodejs";
@@ -114,28 +109,6 @@ async function sendWithResend(d) {
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text().catch(() => "")}`);
 }
 
-async function sendWithWeb3Forms(d) {
-  const { subject } = buildMessage(d);
-  const res = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify({
-      access_key: process.env.WEB3FORMS_KEY,
-      subject,
-      from_name: `${site.brand} — sito web`,
-      replyto: d.email,
-      ...(process.env.CONTACT_TO ? { ccemail: process.env.CONTACT_TO } : {}),
-      Nome: d.nome,
-      Email: d.email,
-      Telefono: d.telefono || "—",
-      Servizio: d.servizio || "Non indicato / orientamento",
-      Messaggio: d.messaggio,
-      "Consenso privacy": "Sì",
-    }),
-  });
-  if (!res.ok) throw new Error(`Web3Forms ${res.status}: ${await res.text().catch(() => "")}`);
-}
-
 export async function POST(request) {
   let body;
   try {
@@ -165,11 +138,7 @@ export async function POST(request) {
 
   try {
     if (process.env.RESEND_API_KEY) await sendWithResend(data);
-    else if (process.env.WEB3FORMS_KEY) await sendWithWeb3Forms(data);
-    else {
-      // 503 + noProvider: il form in pagina ripiega su Web3Forms lato browser, se configurato
-      return Response.json({ ok: false, noProvider: true, error: "Invio non disponibile al momento." }, { status: 503 });
-    }
+    else return Response.json({ ok: false, error: "Invio non disponibile al momento." }, { status: 503 });
   } catch (err) {
     console.error("[contact]", err?.message || err);
     return Response.json({ ok: false, error: "Invio non riuscito." }, { status: 502 });
