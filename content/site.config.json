@@ -276,20 +276,25 @@
       ],
       "founder": false,
       "email": "",
-      "phone": "",
+      "phone": "347 646 7376",
       "socials": {
         "instagram": "",
         "facebook": "",
         "linkedin": ""
       },
-      "bio": [],
+      "bio": [
+        "Mi sono laureato in Fisioterapia presso l'Università di Sassari nel 2019 e nel 2022 ho conseguito un Master di I livello in Terapia Manuale e Fisioterapia Muscolo-scheletrica.",
+        "In questi anni ho maturato esperienza in ambito ortopedico, sportivo, neurologico e dell'età evolutiva.",
+        "Collaboro inoltre con società sportive e atleti per il ritorno allo sport e la gestione degli infortuni."
+      ],
       "room": {
         "src": "/img/studio/sala-fisioterapia-neuropsicomotricita-valentina-agostara-daniele-delrio-centro-emovere-alghero.jpeg",
         "alt": "La sala di fisioterapia di Daniele Delrio al Centro Emovere",
         "caption": "La sala di fisioterapia e neuropsicomotricità"
       },
-      "vatNumber": "",
-      "registration": ""
+      "vatNumber": "02834930907",
+      "registration": "Iscritto all'Albo TSRM-PSTRP di Sassari Nord-Est Sardegna, n. 397",
+      "whatsapp": "3476467376"
     },
     {
       "slug": "letizia",
