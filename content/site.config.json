@@ -310,21 +310,27 @@
         "parent-training"
       ],
       "founder": false,
-      "email": "",
-      "phone": "",
+      "email": "palaletizia@gmail.com",
+      "phone": "349 624 9323",
       "socials": {
         "instagram": "",
         "facebook": "",
         "linkedin": ""
       },
-      "bio": [],
+      "bio": [
+        "Psicologa clinica. Il suo percorso formativo comprende la laurea triennale in Scienze e Tecniche Psicologiche e la laurea magistrale in Psicologia (110/110 e lode) presso l'Università degli Studi Guglielmo Marconi.",
+        "In Emovere si occupa di supporto psicologico per bambini, adolescenti e adulti, sostegno emotivo in situazioni di stress, ansia e cambiamento, supporto alla genitorialità, psicoeducazione ed educazione affettiva, mentoring e supporto motivazionale, lavorando in collaborazione con l'équipe multidisciplinare del centro.",
+        "Ha maturato esperienza in progetti educativi e di mentoring in ambito scolastico e territoriale, con particolare attenzione al contrasto della dispersione scolastica e al potenziamento delle competenze socio-emotive.",
+        "Il suo approccio integra mente, corpo e contesto relazionale, offrendo uno spazio sicuro e non giudicante."
+      ],
       "room": {
         "src": "/img/studio/studio-psicologia-giulia-motzo-centro-emovere-alghero.jpg",
         "alt": "Lo studio di logopedia e psicologia in cui riceve Letizia Pala al Centro Emovere",
         "caption": "Lo studio di logopedia e psicologia"
       },
-      "vatNumber": "",
-      "registration": ""
+      "vatNumber": "03062230903",
+      "registration": "Iscritta all'Ordine degli Psicologi della Sardegna n. 4270",
+      "whatsapp": "3496249323"
     }
   ],
   "services": [
