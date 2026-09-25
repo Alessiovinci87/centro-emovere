@@ -84,6 +84,16 @@ export function Instagram({ className = "h-5 w-5" }) {
     </svg>
   );
 }
+export function LinkedIn({ className = "h-5 w-5" }) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="3" y="3" width="18" height="18" rx="4" />
+      <path d="M8 10.5V16" />
+      <circle cx="8" cy="7.6" r="0.8" fill="currentColor" stroke="none" />
+      <path d="M11.5 16v-5.5M11.5 13c0-1.6 1-2.5 2.3-2.5S16 11.2 16 13v3" />
+    </svg>
+  );
+}
 export function Home({ className = "h-6 w-6" }) {
   return (
     <svg {...base} className={className}>

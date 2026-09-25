@@ -1,6 +1,6 @@
 import Link from "next/link";
 import site from "@/content/site.config.json";
-import { ArrowRight, Clock, Instagram, Mail, Pin } from "@/components/Icons";
+import { ArrowRight, Clock, Instagram, LinkedIn, Mail, Pin } from "@/components/Icons";
 import Logo from "@/components/Logo";
 import { CookiePreferencesButton } from "@/components/CookieConsent.client";
 
@@ -105,6 +105,18 @@ export default function Footer() {
           <div>
             <span className="block">© {year} {site.brand} · Alghero (SS), Sardegna</span>
             {site.legalNote && <span className="block mt-1">{site.legalNote}</span>}
+            <a
+              href="https://www.linkedin.com/in/alessio-vinci-jr-full-dev/"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              className="mt-2 inline-flex items-start gap-1.5 link-quiet text-[var(--muted)]"
+            >
+              <LinkedIn className="mt-0.5 h-4 w-4 shrink-0 text-[var(--sage-strong)]" />
+              <span>
+                Sito realizzato da <span className="font-medium text-[var(--fg)]">Alessio Vinci</span>
+                <span className="text-[var(--sage-strong)]"> · Vuoi un sito così? Scrivimi</span>
+              </span>
+            </a>
           </div>
           <nav aria-label="Note legali" className="flex flex-wrap gap-x-5 gap-y-2 shrink-0">
             <Link href="/privacy" className="link-quiet">Privacy</Link>
