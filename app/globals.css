@@ -34,7 +34,7 @@
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
-html, body { height: 100%; }
+html { height: 100%; }
 body {
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   background: var(--bg);
