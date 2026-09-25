@@ -1,6 +1,6 @@
 import Link from "next/link";
 import site from "@/content/site.config.json";
-import { ArrowRight, Clock, Instagram, LinkedIn, Mail, Pin } from "@/components/Icons";
+import { ArrowRight, Clock, Instagram, Mail, Pin } from "@/components/Icons";
 import Logo from "@/components/Logo";
 import { CookiePreferencesButton } from "@/components/CookieConsent.client";
 
@@ -106,15 +106,22 @@ export default function Footer() {
             <span className="block">© {year} {site.brand} · Alghero (SS), Sardegna</span>
             {site.legalNote && <span className="block mt-1">{site.legalNote}</span>}
             <a
-              href="https://www.linkedin.com/in/alessio-vinci-jr-full-dev/"
+              href="https://alessio-vinci-portfolio.vercel.app"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="mt-2 inline-flex items-start gap-1.5 link-quiet text-[var(--muted)]"
+              className="group mt-4 inline-flex items-center gap-3 rounded-xl border border-[var(--border)] bg-white py-2 pl-2.5 pr-4 hover:bg-[var(--sage-soft)] hover:border-[var(--ring)] transition-colors"
             >
-              <LinkedIn className="mt-0.5 h-4 w-4 shrink-0 text-[var(--sage-strong)]" />
-              <span>
-                Sito realizzato da <span className="font-medium text-[var(--fg)]">Alessio Vinci</span>
-                <span className="text-[var(--sage-strong)]"> · Vuoi un sito così? Scrivimi</span>
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[var(--fg)] text-[11px] font-bold tracking-wide text-white">
+                AV
+              </span>
+              <span className="leading-5">
+                <span className="block text-[13.5px] text-[var(--fg)]">
+                  Sito realizzato da <span className="font-semibold">Alessio Vinci</span>
+                </span>
+                <span className="flex items-center gap-1 text-[13px] font-medium text-[var(--sage-strong)]">
+                  Vuoi un sito così? Guarda i miei lavori
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
               </span>
             </a>
           </div>
