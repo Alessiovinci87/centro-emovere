@@ -121,9 +121,9 @@ export default async function ServicePage({ params }) {
             {Array.isArray(svc.bullets) && svc.bullets.length > 0 && (
               <div className="mt-8">
                 <h2 className="h3">Di cosa ci occupiamo</h2>
-                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                <ul className="mt-4 rounded-2xl bg-white border border-[var(--border)] divide-y divide-[var(--border)]">
                   {svc.bullets.map((b, i) => (
-                    <li key={i} className="flex items-start gap-3 rounded-2xl bg-white border border-[var(--border)] p-4">
+                    <li key={i} className="flex items-start gap-3 px-5 py-3.5">
                       <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[var(--sage-soft)] text-[var(--sage-strong)]">
                         <Check className="h-3.5 w-3.5" />
                       </span>
