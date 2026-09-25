@@ -292,3 +292,13 @@ html { overscroll-behavior-y: none; -webkit-text-size-adjust: 100%; }
 /* Footer */
 .footer-title { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
 .footer-ico { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 9999px; background: var(--sage-soft); color: var(--sage-strong); flex-shrink: 0; margin-top: 2px; }
+
+/* Banner consenso cookie: sopra la tab bar su mobile, in basso a sinistra su desktop */
+.consent {
+  position: fixed; left: 0; right: 0; z-index: 50; padding: 0 12px;
+  bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 12px);
+}
+.consent-box { max-width: 30rem; margin: 0 auto; padding: 1.1rem 1.2rem; box-shadow: 0 18px 40px rgba(31,42,34,.18); }
+@media (min-width: 1024px) {
+  .consent { bottom: 24px; left: 24px; right: auto; padding: 0; }
+}

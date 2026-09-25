@@ -2,6 +2,7 @@ import Link from "next/link";
 import site from "@/content/site.config.json";
 import { ArrowRight, Clock, Instagram, Mail, Pin } from "@/components/Icons";
 import Logo from "@/components/Logo";
+import { CookiePreferencesButton } from "@/components/CookieConsent.client";
 
 const centerLinks = [
   { href: "/#chi-siamo", label: "Chi siamo" },
@@ -105,9 +106,10 @@ export default function Footer() {
             <span className="block">© {year} {site.brand} · Alghero (SS), Sardegna</span>
             {site.legalNote && <span className="block mt-1">{site.legalNote}</span>}
           </div>
-          <nav aria-label="Note legali" className="flex gap-5 shrink-0">
+          <nav aria-label="Note legali" className="flex flex-wrap gap-x-5 gap-y-2 shrink-0">
             <Link href="/privacy" className="link-quiet">Privacy</Link>
             <Link href="/cookies" className="link-quiet">Cookie</Link>
+            <CookiePreferencesButton className="link-quiet" />
           </nav>
         </div>
       </div>

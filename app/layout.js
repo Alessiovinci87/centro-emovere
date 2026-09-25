@@ -6,6 +6,7 @@ import { SITE_URL, absoluteUrl } from "@/lib/site";
 import Header from "@/components/Header.client";
 import Footer from "@/components/Footer";
 import TabBar from "@/components/TabBar.client";
+import CookieConsent from "@/components/CookieConsent.client";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const playfair = Playfair_Display({
@@ -82,6 +83,7 @@ export default function RootLayout({ children }) {
         <main id="main" className="flex-1">{children}</main>
         <Footer />
         <TabBar />
+        <CookieConsent />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>
     </html>

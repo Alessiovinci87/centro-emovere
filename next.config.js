@@ -4,16 +4,19 @@ const isProd = process.env.NODE_ENV === "production";
 
 /**
  * Header di sicurezza.
- * La CSP consente solo risorse del sito stesso, più la mappa Google (caricata su click)
- * e le immagini statiche di Google Maps. In sviluppo Next ha bisogno di eval per l'HMR.
+ * La CSP consente solo risorse del sito stesso, più la mappa Google (caricata su click),
+ * le immagini statiche di Google Maps e Microsoft Clarity (caricato solo dopo il consenso;
+ * domini indicati da Microsoft: *.clarity.ms e c.bing.com). In sviluppo Next ha bisogno di eval per l'HMR.
  */
+const CLARITY = "https://*.clarity.ms https://c.bing.com";
+
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"}`,
+  `script-src 'self' 'unsafe-inline' ${CLARITY}${isProd ? "" : " 'unsafe-eval'"}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://maps.googleapis.com https://maps.gstatic.com https://*.googleusercontent.com",
+  `img-src 'self' data: blob: https://maps.googleapis.com https://maps.gstatic.com https://*.googleusercontent.com ${CLARITY}`,
   "font-src 'self' data:",
-  "connect-src 'self'",
+  `connect-src 'self' ${CLARITY}`,
   "frame-src https://www.google.com https://maps.google.com",
   "media-src 'self'",
   "object-src 'none'",

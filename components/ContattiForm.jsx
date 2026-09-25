@@ -45,7 +45,7 @@ export default function ContattiForm({ defaultService = "" }) {
 
   if (status === "success") {
     return (
-      <div className="card p-6 md:p-8 text-center" role="status">
+      <div className="card p-6 md:p-8 text-center" role="status" data-clarity-mask="true">
         <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-[var(--sage-soft)] text-[var(--sage-strong)]">
           <Check className="h-6 w-6" />
         </span>
@@ -59,7 +59,8 @@ export default function ContattiForm({ defaultService = "" }) {
   }
 
   return (
-    <form name="contatti" onSubmit={onSubmit} className="card p-5 md:p-7 space-y-4">
+    // data-clarity-mask: Clarity non registra nulla del form (testi, scelte, messaggi di esito)
+    <form name="contatti" onSubmit={onSubmit} className="card p-5 md:p-7 space-y-4" data-clarity-mask="true">
       <p className="hidden">
         <label>Non compilare: <input name="bot-field" /></label>
       </p>
